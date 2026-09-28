@@ -43,7 +43,7 @@ export default function AdminDashboard() {
 
     const checkAuth = async () => {
       try {
-        const res = await fetch("/api/admin/auth/me");
+        const res = await fetch("/api/sys-admin/auth/me");
         if (res.ok) {
           const data = await res.json();
           if (data.authenticated) {
@@ -69,7 +69,7 @@ export default function AdminDashboard() {
     setLoginLoading(true);
 
     try {
-      const res = await fetch("/api/admin/auth/login", {
+      const res = await fetch("/api/sys-admin/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
