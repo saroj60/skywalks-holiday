@@ -1,0 +1,189 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  SUPER_ADMIN
+  STAFF
+  AGENT
+}
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  QUOTATION_SENT
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+enum PackageStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(STAFF)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Customer {
+  id        String   @id @default(uuid())
+  fullName  String
+  phone     String
+  email     String?
+  whatsapp  String?
+  country   String?  @default("Nepal")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FlightInquiry {
+  id             String        @id @default(uuid())
+  tripType       String        @default("one-way")
+  fromCity       String
+  toCity         String
+  departureDate  String
+  returnDate     String?
+  passengers     String        @default("1 Adult")
+  cabinClass     String        @default("Economy")
+  customerName   String
+  whatsappNumber String
+  status         InquiryStatus @default(NEW)
+  assignedStaff  String?       @default("Unassigned")
+  notes          String?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model HotelInquiry {
+  id             String        @id @default(uuid())
+  destination    String
+  checkIn        String
+  checkOut       String?
+  guests         String        @default("2 Guests")
+  rooms          String        @default("1 Room")
+  customerName   String
+  whatsappNumber String
+  status         InquiryStatus @default(NEW)
+  assignedStaff  String?       @default("Unassigned")
+  notes          String?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model HolidayPackageInquiry {
+  id                  String        @id @default(uuid())
+  packageId           Int?
+  packageName         String
+  destination         String
+  travelDate          String
+  travelers           String        @default("2 Travelers")
+  customerName        String
+  whatsappNumber      String
+  specialRequirements String?
+  status              InquiryStatus @default(NEW)
+  assignedStaff       String?       @default("Unassigned")
+  notes               String?
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+}
+
+model VisaApplication {
+  id                 String        @id @default(uuid())
+  fullName           String
+  nationality        String        @default("Nepalese")
+  destinationCountry String
+  visaType           String
+  travelPurpose      String
+  whatsappNumber     String
+  email              String
+  status             InquiryStatus @default(NEW)
+  assignedStaff      String?       @default("Unassigned")
+  notes              String?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+}
+
+model BusInquiry {
+  id              String        @id @default(uuid())
+  departureCity   String
+  destinationCity String
+  travelDate      String
+  passengers      String        @default("1 Passenger")
+  customerName    String
+  phone           String
+  status          InquiryStatus @default(NEW)
+  assignedStaff   String?       @default("Unassigned")
+  notes           String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model HolidayPackage {
+  id            Int           @id @default(autoincrement())
+  title         String
+  destination   String
+  country       String
+  duration      String
+  price         Int
+  originalPrice Int
+  rating        Float         @default(4.8)
+  reviews       Int           @default(12)
+  inclusions    String        // JSON array as string
+  exclusions    String?       // JSON array as string
+  itinerary     String?       // JSON array as string
+  hotelInfo     String?
+  coverImage    String
+  gallery       String        // JSON array as string
+  category      String        @default("International")
+  badge         String?       @default("Popular")
+  featured      Boolean       @default(false)
+  status        PackageStatus @default(ACTIVE)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model UpcomingDeparture {
+  id             String   @id @default(uuid())
+  packageId      Int?
+  title          String
+  destination    String
+  startDate      String   // e.g. "2026-10-12"
+  endDate        String   // e.g. "2026-10-18"
+  seasonTag      String   // e.g. "Dashain Holiday Special"
+  totalSeats     Int      @default(20)
+  availableSeats Int      @default(5)
+  price          Int
+  originalPrice  Int
+  image          String
+  status         String   @default("UPCOMING")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model ContactMessage {
+  id                String        @id @default(uuid())
+  name              String
+  email             String
+  phone             String
+  serviceInterested String
+  destination       String?
+  message           String
+  status            InquiryStatus @default(NEW)
+  assignedStaff     String?       @default("Unassigned")
+  notes             String?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
