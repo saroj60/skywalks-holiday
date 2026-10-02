@@ -21,12 +21,12 @@ export default function CountryCardsSection() {
         />
 
         {/* 4-column responsive grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {POPULAR_COUNTRIES.map((country) => (
             <Link
               key={country.id}
               href={country.href}
-              className="group relative h-72 sm:h-80 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 border border-slate-200/80 flex flex-col justify-between p-5"
+              className="group relative h-72 sm:h-80 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 border border-slate-200/80 flex flex-col justify-between p-4 sm:p-5"
             >
               {/* Country Background Image */}
               <Image
@@ -41,28 +41,28 @@ export default function CountryCardsSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
 
               {/* Top Badges Row */}
-              <div className="relative z-10 flex items-center justify-between">
+              <div className="relative z-10 flex flex-wrap items-center justify-between gap-1.5">
                 {/* Flag + Badge */}
-                <div className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#0a1628] shadow-lg border border-white/60">
+                <div className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-bold text-[#0a1628] shadow-lg border border-white/60">
                   <span className="text-sm">{country.flag}</span>
                   <span>{country.badge}</span>
                 </div>
 
                 {/* Number of Packages Pill */}
-                <div className="inline-flex items-center gap-1.5 bg-[#0ea5e9] text-white px-3 py-1 rounded-full text-xs font-extrabold shadow-md shadow-sky-500/30 group-hover:bg-[#f97316] transition-colors duration-300">
-                  <Package size={13} />
+                <div className="inline-flex items-center gap-1.5 bg-[#0ea5e9] text-white px-2.5 py-1 rounded-full text-xs font-extrabold shadow-md shadow-sky-500/30 group-hover:bg-[#f97316] transition-colors duration-300">
+                  <Package size={12} />
                   <span>{country.packagesCount} Packages</span>
                 </div>
               </div>
 
               {/* Bottom Content Area */}
               <div className="relative z-10 text-left mt-auto">
-                <div className="text-xs font-medium text-sky-300 flex items-center gap-1 mb-1">
-                  <MapPin size={12} className="text-sky-400" />
-                  <span>{country.subtitle}</span>
+                <div className="text-[11px] sm:text-xs font-medium text-sky-300 flex items-center gap-1 mb-1">
+                  <MapPin size={11} className="text-sky-400 shrink-0" />
+                  <span className="truncate">{country.subtitle}</span>
                 </div>
 
-                <h3 className="text-2xl font-black text-white tracking-tight leading-snug mb-2 group-hover:text-sky-300 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-2 group-hover:text-sky-300 transition-colors">
                   {country.name}
                 </h3>
 
