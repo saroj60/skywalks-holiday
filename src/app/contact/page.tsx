@@ -240,30 +240,53 @@ export default function ContactPage() {
           <SectionHeader
             eyebrow="Visit Our Office"
             title="Locate Skywalks Holidays in Kathmandu"
-            subtitle="We welcome you to visit our office in Pepsicola for in-person travel consultations."
+            subtitle="We welcome you to visit our office in Pepsicola, Kathmandu for in-person travel consultations."
           />
 
-          <div className="bg-[#f8fafc] rounded-3xl overflow-hidden border border-[#e2e8f0] p-4 shadow-xl">
-            {/* Map Placeholder Graphic */}
-            <div className="relative h-80 sm:h-96 w-full rounded-2xl bg-[#163058] overflow-hidden flex flex-col items-center justify-center text-white text-center p-6">
-              <div className="w-16 h-16 rounded-full bg-[#0ea5e9] flex items-center justify-center text-white mb-4 shadow-2xl animate-bounce">
-                <MapPin size={32} />
+          <div className="bg-[#f8fafc] rounded-3xl overflow-hidden border border-[#e2e8f0] p-3 sm:p-4 shadow-xl">
+            <div className="relative h-80 sm:h-[420px] w-full rounded-2xl overflow-hidden border border-[#e2e8f0] shadow-inner bg-slate-100">
+              {/* Interactive Google Map iframe */}
+              <iframe
+                src="https://maps.google.com/maps?q=Pepsicola,%20Kathmandu,%20Nepal&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Skywalks Holidays Pepsicola Office Map"
+                className="w-full h-full rounded-2xl"
+              />
+
+              {/* Floating Location Information Badge */}
+              <div className="absolute top-4 left-4 z-10 bg-[#0a1628]/95 backdrop-blur-md text-white p-4 rounded-2xl border border-white/20 shadow-2xl max-w-xs text-left hidden sm:block">
+                <div className="flex items-center gap-1.5 text-[#38bdf8] text-xs font-bold uppercase tracking-wider mb-1">
+                  <MapPin size={14} className="text-[#f97316]" />
+                  <span>Headquarters</span>
+                </div>
+                <h4 className="font-bold text-white text-base">Skywalks Holidays</h4>
+                <p className="text-white/80 text-xs mt-1 leading-relaxed">
+                  Pepsicola, Kathmandu, Nepal, 44600
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-white/15 flex items-center gap-2 text-[11px] text-emerald-400 font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Always Open (24/7 Service)</span>
+                </div>
               </div>
 
-              <h3 className="text-2xl font-bold mb-1">Pepsicola, Kathmandu, Nepal, 44600</h3>
-              <p className="text-white/70 text-xs sm:text-sm max-w-md mb-6">
-                Pepsicola, Kathmandu, Nepal, 44600. Easy access &amp; 24/7 travel consultation service available.
-              </p>
-
-              <a
-                href="https://maps.google.com/?q=Pepsicola+Kathmandu+Nepal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-[#0a1628] hover:bg-[#0ea5e9] hover:text-white font-bold px-6 py-3 rounded-xl shadow-lg transition-colors text-xs sm:text-sm"
-              >
-                Open Directions in Google Maps
-                <ExternalLink size={14} />
-              </a>
+              {/* Direct Link Button */}
+              <div className="absolute bottom-4 right-4 z-10">
+                <a
+                  href="https://maps.app.goo.gl/cSd8z1m3BnbegeSY6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-extrabold px-5 py-3 rounded-xl shadow-2xl transition-all duration-300 text-xs sm:text-sm hover:scale-105 border border-white/30"
+                >
+                  <MapPin size={16} />
+                  <span>Open in Google Maps App</span>
+                  <ExternalLink size={14} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
