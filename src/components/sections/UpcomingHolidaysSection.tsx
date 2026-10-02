@@ -153,10 +153,10 @@ export default function UpcomingHolidaysSection() {
                       <span className="text-[11px] text-[#94a3b8] uppercase font-semibold block">Fixed Price</span>
                       <div className="flex items-baseline gap-2">
                         <span className="text-lg font-extrabold text-white">
-                          NPR {dep.price.toLocaleString()}
+                          NPR {dep.price.toLocaleString("en-US")}
                         </span>
                         <span className="text-xs text-[#94a3b8] line-through">
-                          NPR {dep.originalPrice.toLocaleString()}
+                          NPR {dep.originalPrice.toLocaleString("en-US")}
                         </span>
                       </div>
                     </div>

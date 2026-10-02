@@ -15,7 +15,7 @@ export default function StatsCounter() {
             const IconComponent = stat.icon || Sparkles;
             const formattedValue =
               typeof stat.value === "number"
-                ? stat.value.toLocaleString()
+                ? stat.value.toLocaleString("en-US")
                 : stat.value;
 
             return (

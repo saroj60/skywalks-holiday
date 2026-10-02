@@ -47,7 +47,7 @@ export default function Destinations() {
                       {dest.packages} Packages
                     </div>
                     <div className="text-white text-sm font-semibold">
-                      From NPR {dest.startingFrom.toLocaleString()}
+                      From NPR {dest.startingFrom.toLocaleString("en-US")}
                     </div>
                   </div>
                 </div>

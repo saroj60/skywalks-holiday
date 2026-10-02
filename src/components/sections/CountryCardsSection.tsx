@@ -72,7 +72,7 @@ export default function CountryCardsSection() {
                       Packages From
                     </span>
                     <span className="text-sm font-extrabold text-white">
-                      NPR {country.startingPrice.toLocaleString()}
+                      NPR {country.startingPrice.toLocaleString("en-US")}
                     </span>
                   </div>
 

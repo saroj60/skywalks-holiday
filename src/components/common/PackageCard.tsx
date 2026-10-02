@@ -119,10 +119,10 @@ export default function PackageCard({
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-xl font-bold text-[#0a1628]">
-                NPR {price.toLocaleString()}
+                NPR {price.toLocaleString("en-US")}
               </span>
               <span className="text-xs text-[#94a3b8] line-through">
-                NPR {originalPrice.toLocaleString()}
+                NPR {originalPrice.toLocaleString("en-US")}
               </span>
             </div>
             <p className="text-xs text-[#64748b]">per person</p>

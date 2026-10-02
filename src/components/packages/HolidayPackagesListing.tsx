@@ -478,10 +478,10 @@ export default function HolidayPackagesListing() {
                       <span className="text-xs text-[#94a3b8] block">Starting Price</span>
                       <div className="flex items-baseline gap-2">
                         <span className="text-xl font-extrabold text-[#0a1628]">
-                          NPR {pkg.price.toLocaleString()}
+                          NPR {pkg.price.toLocaleString("en-US")}
                         </span>
                         <span className="text-xs text-[#94a3b8] line-through">
-                          NPR {pkg.originalPrice.toLocaleString()}
+                          NPR {pkg.originalPrice.toLocaleString("en-US")}
                         </span>
                       </div>
                     </div>

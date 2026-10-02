@@ -983,10 +983,10 @@ export default async function PackageDetailPage({
             <span className="text-xs text-[#94a3b8] uppercase font-semibold">Starting From</span>
             <div className="flex items-baseline gap-2">
               <span className="text-3xl font-extrabold text-[#0a1628]">
-                NPR {pkg.price.toLocaleString()}
+                NPR {pkg.price.toLocaleString("en-US")}
               </span>
               <span className="text-sm text-[#94a3b8] line-through">
-                NPR {pkg.originalPrice.toLocaleString()}
+                NPR {pkg.originalPrice.toLocaleString("en-US")}
               </span>
             </div>
             <span className="text-xs text-[#64748b]">per person (all taxes included)</span>

@@ -99,7 +99,7 @@ export default function PackageInquirySidebar({
         <div className="flex items-baseline justify-between">
           <span className="text-xs text-[#94a3b8] font-semibold uppercase">Starting Price</span>
           <span className="text-2xl font-extrabold text-[#0a1628]">
-            NPR {packagePrice.toLocaleString()}
+            NPR {packagePrice.toLocaleString("en-US")}
           </span>
         </div>
         <p className="text-[11px] text-[#64748b] text-right mt-0.5">per person (all inclusive)</p>
