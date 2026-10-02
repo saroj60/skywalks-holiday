@@ -120,21 +120,21 @@ export default function HeroSection() {
               alt={currentSlide.alt}
               fill
               priority
-              className="object-cover object-center"
+              className="object-cover object-[center_35%] sm:object-center"
               sizes="100vw"
             />
           </motion.div>
         </AnimatePresence>
 
-        {/* Balanced dark overlay to make background images rich & clearly visible while preserving text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/65 via-[#0a1628]/40 to-[#0a1628]/85 z-10" />
-        <div className="absolute inset-0 bg-black/20 z-10" />
+        {/* Ultra-vivid light dark overlay so background images shine clearly on mobile & desktop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/45 via-[#0a1628]/20 to-[#0a1628]/85 z-10" />
+        <div className="absolute inset-0 bg-black/15 z-10" />
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-20 container-custom pt-6 sm:pt-10 md:pt-16 pb-6 sm:pb-8 flex flex-col items-center text-center">
+      <div className="relative z-20 container-custom pt-4 sm:pt-10 md:pt-16 pb-4 sm:pb-8 flex flex-col items-center text-center">
         {/* Interactive Service Selector Pills Header */}
-        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-4 sm:mb-6 max-w-4xl px-1">
+        <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 mb-3 sm:mb-6 max-w-4xl px-1 overflow-x-auto no-scrollbar w-full py-1">
           {HERO_SLIDES.map((slide, index) => {
             const Icon = slide.icon;
             const isActive = index === currentIndex;
@@ -142,21 +142,21 @@ export default function HeroSection() {
               <button
                 key={slide.id}
                 onClick={() => setCurrentIndex(index)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold transition-all duration-300 cursor-pointer shrink-0 ${
                   isActive
                     ? "bg-[#0ea5e9] text-white shadow-lg shadow-sky-500/40 scale-105"
-                    : "bg-black/40 hover:bg-black/60 text-white border border-white/20 backdrop-blur-md"
+                    : "bg-black/50 hover:bg-black/70 text-white border border-white/20 backdrop-blur-md"
                 }`}
               >
-                <Icon size={14} className={isActive ? "text-white" : "text-[#0ea5e9]"} />
-                <span>{slide.serviceName}</span>
+                <Icon size={13} className={isActive ? "text-white" : "text-[#0ea5e9]"} />
+                <span className="whitespace-nowrap">{slide.serviceName}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Sub-badge display */}
-        <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/25 rounded-full px-3.5 py-1 sm:px-4 sm:py-1.5 mb-4 sm:mb-6 shadow-xl">
+        {/* Sub-badge display - Shown on sm+, hidden on small mobile to reveal full hero background */}
+        <div className="hidden sm:inline-flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/25 rounded-full px-3.5 py-1 sm:px-4 sm:py-1.5 mb-4 sm:mb-6 shadow-xl">
           <Sparkles size={14} className="text-[#f97316] animate-pulse" />
           <span className="text-white text-[11px] sm:text-xs md:text-sm font-bold tracking-wider uppercase">
             {currentSlide.badge}
@@ -173,24 +173,24 @@ export default function HeroSection() {
             transition={{ duration: 0.4 }}
             className="flex flex-col items-center max-w-5xl"
           >
-            <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.15] mb-3 sm:mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)] min-h-[1.2em]">
+            <h1 className="text-xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.2] mb-2 sm:mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] min-h-[1.2em]">
               {currentSlide.title}
             </h1>
 
-            <p className="text-white text-xs sm:text-base md:text-xl max-w-3xl mb-5 sm:mb-8 leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] px-2">
+            <p className="text-white text-xs sm:text-base md:text-xl max-w-3xl mb-4 sm:mb-8 leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] px-2 line-clamp-2 sm:line-clamp-none">
               {currentSlide.subtitle}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 w-full sm:w-auto px-4 sm:px-0">
+            <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2 sm:gap-4 justify-center mb-4 sm:mb-8 w-full sm:w-auto px-1 sm:px-0">
               <Button
                 size="xl"
                 asChild
-                className="w-full sm:w-auto bg-[#f97316] hover:bg-[#ea580c] text-white font-extrabold shadow-2xl shadow-orange-500/40 text-sm sm:text-base md:text-lg py-3 sm:py-4 min-h-[44px]"
+                className="bg-[#f97316] hover:bg-[#ea580c] text-white font-extrabold shadow-2xl shadow-orange-500/40 text-xs sm:text-base md:text-lg py-2.5 sm:py-4 px-3 sm:px-6 min-h-[40px] sm:min-h-[44px]"
               >
-                <Link href={currentSlide.ctaLink}>
-                  {currentSlide.ctaText}
-                  <ArrowRight size={18} />
+                <Link href={currentSlide.ctaLink} className="flex items-center justify-center gap-1">
+                  <span>{currentSlide.ctaText}</span>
+                  <ArrowRight size={14} className="shrink-0" />
                 </Link>
               </Button>
 
@@ -198,11 +198,11 @@ export default function HeroSection() {
                 size="xl"
                 variant="outline-white"
                 asChild
-                className="w-full sm:w-auto text-sm sm:text-base md:text-lg backdrop-blur-md bg-black/30 border-white/40 hover:bg-white/20 text-white py-3 sm:py-4 min-h-[44px]"
+                className="text-xs sm:text-base md:text-lg backdrop-blur-md bg-black/40 border-white/40 hover:bg-white/20 text-white py-2.5 sm:py-4 px-3 sm:px-6 min-h-[40px] sm:min-h-[44px]"
               >
-                <Link href="/services/custom">
-                  <Compass size={18} className="text-[#0ea5e9]" />
-                  Plan Custom Trip
+                <Link href="/services/custom" className="flex items-center justify-center gap-1">
+                  <Compass size={14} className="text-[#0ea5e9] shrink-0" />
+                  <span>Custom Trip</span>
                 </Link>
               </Button>
             </div>

@@ -42,13 +42,13 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
               key={tab.id}
               onClick={() => handleTabClick(tab.id)}
               className={cn(
-                "flex-1 min-w-[120px] flex items-center justify-center gap-2.5 px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer",
+                "flex-1 min-w-[75px] sm:min-w-[120px] flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-4 py-2 sm:py-3 rounded-2xl text-[11px] sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap",
                 isActive
                   ? "bg-[#0a1628] text-white shadow-md"
                   : "text-[#64748b] hover:text-[#0a1628] hover:bg-[#f1f5f9]"
               )}
             >
-              <Icon size={16} className={isActive ? "text-[#0ea5e9]" : "text-[#64748b]"} />
+              <Icon size={14} className={cn("shrink-0 sm:w-4 sm:h-4", isActive ? "text-[#0ea5e9]" : "text-[#64748b]")} />
               <span>{tab.label}</span>
             </button>
           );
