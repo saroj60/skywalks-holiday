@@ -187,7 +187,6 @@ export default function ContactInquiryForm() {
               <option value="Hotel Booking">Hotel Reservation</option>
               <option value="International Tour Package">International Tour Package</option>
               <option value="Visa Assistance">Visa Assistance</option>
-              <option value="Bus Tickets">Bus Tickets</option>
               <option value="General Inquiry">General / Custom Request</option>
             </select>
           </div>

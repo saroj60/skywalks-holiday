@@ -15,7 +15,6 @@ import {
   Hotel,
   Globe,
   FileCheck,
-  Bus,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SearchBar from "@/components/common/SearchBar";
@@ -72,19 +71,6 @@ const HERO_SLIDES = [
     alt: "Passports and travel documents — Skywalk Holidays Visa Assistance",
     ctaText: "Apply for Visa",
     ctaLink: "/visa-services",
-  },
-  {
-    id: "bus",
-    serviceName: "Bus Tickets",
-    icon: Bus,
-    badge: "Overland Tourist Coaches",
-    title: "Comfortable Tourist Bus Travel",
-    subtitle:
-      "Deluxe sofa bus ticket bookings across major routes in Nepal & India — Kathmandu, Pokhara, Chitwan, Lumbini & Delhi.",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1920&q=90",
-    alt: "Luxury tourist bus highway journey — Skywalk Holidays Bus Tickets",
-    ctaText: "Book Bus Tickets",
-    ctaLink: "/bus-tickets",
   },
 ];
 

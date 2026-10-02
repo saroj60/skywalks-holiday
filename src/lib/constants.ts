@@ -3,7 +3,6 @@ import {
   Hotel,
   Globe,
   FileCheck,
-  Bus,
   Shield,
   Sparkles,
   Users,
@@ -33,7 +32,6 @@ export const NAV_LINKS = [
       { label: "Hotel Booking", href: "/hotels" },
       { label: "Holiday Packages", href: "/holiday-packages" },
       { label: "Visa Assistance", href: "/visa-services" },
-      { label: "Bus Tickets", href: "/bus-tickets" },
       { label: "Travel Insurance", href: "/services/insurance" },
       { label: "Custom Tours", href: "/services/custom" },
     ],
@@ -76,14 +74,6 @@ export const SERVICES = [
       "Hassle-free visa processing with expert documentation guidance for 50+ countries.",
     href: "/visa-services",
     color: "navy",
-  },
-  {
-    icon: Bus,
-    title: "Bus Ticket Booking",
-    description:
-      "Intercity tourist and VIP luxury sofa buses across major travel hubs.",
-    href: "/bus-tickets",
-    color: "orange",
   },
   {
     icon: Shield,
@@ -324,7 +314,6 @@ export const FOOTER_LINKS = {
     { label: "Hotel Booking", href: "/services/hotels" },
     { label: "Holiday Packages", href: "/services/packages/international" },
     { label: "Visa Assistance", href: "/services/visa" },
-    { label: "Bus Tickets", href: "/services/bus" },
     { label: "Travel Insurance", href: "/services/insurance" },
     { label: "Custom Tours", href: "/services/custom" },
   ],

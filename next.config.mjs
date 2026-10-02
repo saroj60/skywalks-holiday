@@ -63,10 +63,6 @@ const nextConfig = {
         source: "/visa-services",
         destination: "/services/visa",
       },
-      {
-        source: "/bus-tickets",
-        destination: "/services/bus",
-      },
     ];
   },
 };
