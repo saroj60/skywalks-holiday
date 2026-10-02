@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Clock, MapPin, Check, Filter, MessageSquare, Eye, Star, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { useSearchParams } from "next/navigation";
 
 export interface PackageItem {
   id: string;
@@ -123,11 +124,20 @@ const CATEGORIES = [
 ] as const;
 
 export default function HolidayPackagesListing() {
+  const searchParams = useSearchParams();
+  const urlCountry = searchParams ? (searchParams.get("country") || searchParams.get("destination")) : null;
+
   const [packagesList, setPackagesList] = useState<PackageItem[]>(PACKAGES_DATA);
   const [selectedCategory, setSelectedCategory] = useState<string>("All Packages");
   const [destinationFilter, setDestinationFilter] = useState<string>("All");
   const [durationFilter, setDurationFilter] = useState<string>("All");
   const [budgetFilter, setBudgetFilter] = useState<string>("All");
+
+  React.useEffect(() => {
+    if (urlCountry) {
+      setDestinationFilter(urlCountry);
+    }
+  }, [urlCountry]);
 
   React.useEffect(() => {
     const fetchLivePackages = async () => {
@@ -240,6 +250,9 @@ export default function HolidayPackagesListing() {
               <option value="Bali">Bali, Indonesia</option>
               <option value="Singapore">Singapore &amp; Malaysia</option>
               <option value="Europe">Europe</option>
+              <option value="Japan">Japan</option>
+              <option value="Vietnam">Vietnam</option>
+              <option value="Maldives">Maldives</option>
             </select>
           </div>
 

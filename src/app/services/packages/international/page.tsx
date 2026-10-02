@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Metadata } from "next";
 import { Globe, Sparkles } from "lucide-react";
 import SectionHeader from "@/components/common/SectionHeader";
@@ -55,7 +55,9 @@ export default function HolidayPackagesPage() {
             subtitle="Filter by destination, duration, budget, or category to find your ideal holiday package."
           />
 
-          <HolidayPackagesListing />
+          <Suspense fallback={<div className="text-center py-12 font-medium text-slate-500">Loading holiday packages...</div>}>
+            <HolidayPackagesListing />
+          </Suspense>
         </div>
       </section>
 

@@ -134,7 +134,7 @@ export const POPULAR_COUNTRIES = [
     startingPrice: 38000,
     image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
     badge: "Top Pick",
-    href: "/services/packages/international",
+    href: "/services/packages/international?country=Thailand",
   },
   {
     id: "dubai",
@@ -145,7 +145,7 @@ export const POPULAR_COUNTRIES = [
     startingPrice: 65000,
     image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
     badge: "Best Seller",
-    href: "/services/packages/international",
+    href: "/services/packages/international?country=Dubai",
   },
   {
     id: "bali",
@@ -156,7 +156,7 @@ export const POPULAR_COUNTRIES = [
     startingPrice: 52000,
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
     badge: "Honeymoon",
-    href: "/services/packages/international",
+    href: "/services/packages/international?country=Bali",
   },
   {
     id: "singapore-malaysia",
@@ -167,7 +167,7 @@ export const POPULAR_COUNTRIES = [
     startingPrice: 72000,
     image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800&q=80",
     badge: "Family Favorite",
-    href: "/services/packages/international",
+    href: "/services/packages/international?country=Singapore",
   },
   {
     id: "europe",
@@ -178,7 +178,7 @@ export const POPULAR_COUNTRIES = [
     startingPrice: 185000,
     image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
     badge: "Bucket List",
-    href: "/services/packages/international",
+    href: "/services/packages/international?country=Europe",
   },
   {
     id: "japan",
@@ -189,7 +189,7 @@ export const POPULAR_COUNTRIES = [
     startingPrice: 145000,
     image: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800&q=80",
     badge: "Premium",
-    href: "/services/packages/international",
+    href: "/services/packages/international?country=Japan",
   },
   {
     id: "vietnam",
@@ -200,7 +200,7 @@ export const POPULAR_COUNTRIES = [
     startingPrice: 45000,
     image: "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
     badge: "Trending",
-    href: "/services/packages/international",
+    href: "/services/packages/international?country=Vietnam",
   },
   {
     id: "maldives",
@@ -211,7 +211,7 @@ export const POPULAR_COUNTRIES = [
     startingPrice: 85000,
     image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80",
     badge: "Luxury Escape",
-    href: "/services/packages/international",
+    href: "/services/packages/international?country=Maldives",
   },
 ];
 
