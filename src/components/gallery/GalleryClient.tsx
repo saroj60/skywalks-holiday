@@ -18,6 +18,7 @@ import {
   Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { buildCustomWhatsAppLink } from "@/lib/whatsapp";
 
 const CATEGORIES = [
   { id: "all", label: "All Photos" },
@@ -380,9 +381,9 @@ export default function GalleryClient() {
                   className="bg-[#f97316] hover:bg-[#ea580c] text-white font-bold w-full md:w-auto"
                 >
                   <a
-                    href={`https://wa.me/97798XXXXXXXX?text=Hello%20Skywalk%20Holidays!%20I%20saw%20this%20photo%20of%20${encodeURIComponent(
-                      currentItem.title
-                    )}%20(${currentItem.location})%20in%20your%20gallery.%20Please%20send%20me%20tour%20details!`}
+                    href={buildCustomWhatsAppLink(
+                      `Hello Skywalk Holidays! I saw this photo of "${currentItem.title}" (${currentItem.location}) in your media gallery. Please send me package details & pricing!`
+                    )}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -409,7 +410,7 @@ export default function GalleryClient() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild className="bg-[#f97316] hover:bg-[#ea580c] text-white font-bold w-full sm:w-auto">
-                <Link href="/holiday-packages">
+                <Link href="/services/packages/international">
                   Explore Tour Packages
                   <ArrowRight size={18} />
                 </Link>

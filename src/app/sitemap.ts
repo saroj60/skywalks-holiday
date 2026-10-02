@@ -5,22 +5,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes = [
     "",
-    "/flights",
-    "/hotels",
-    "/holiday-packages",
-    "/visa-services",
-    "/bus-tickets",
+    "/services/flights",
+    "/services/hotels",
+    "/services/packages/international",
+    "/services/packages/domestic",
+    "/services/visa",
+    "/services/insurance",
+    "/services/custom",
     "/about",
     "/contact",
     "/gallery",
     "/vlogs",
-    "/services/insurance",
-    "/services/custom",
     "/packages/dubai-6d",
     "/packages/thailand-5d",
     "/packages/bali-7d",
     "/packages/europe-11d",
     "/packages/singapore-6d",
+    "/packages/japan-7d",
+    "/packages/vietnam-6d",
+    "/packages/maldives-5d",
   ];
 
   return routes.map((route) => ({

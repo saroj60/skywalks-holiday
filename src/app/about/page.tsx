@@ -15,7 +15,6 @@ import {
   Globe,
   MapPin,
   FileCheck,
-  Bus,
   Shield,
   Sparkles,
 } from "lucide-react";
@@ -40,9 +39,8 @@ const SERVICES_GRID = [
   { icon: Plane, name: "Flight Ticket Booking", href: "/services/flights" },
   { icon: Hotel, name: "Hotel Booking", href: "/services/hotels" },
   { icon: Globe, name: "International Packages", href: "/services/packages/international" },
-  { icon: Sparkles, name: "Customized Tour Packages", href: "/services/custom" },
+  { icon: MapPin, name: "Domestic Holiday Packages", href: "/services/packages/domestic" },
   { icon: FileCheck, name: "Visa Assistance", href: "/services/visa" },
-  { icon: Bus, name: "Bus Ticket Booking", href: "/services/bus" },
   { icon: Shield, name: "Travel Insurance", href: "/services/insurance" },
   { icon: Sparkles, name: "Customized Tour Packages", href: "/services/custom" },
 ];
@@ -170,7 +168,7 @@ export default function AboutPage() {
                 Founded in {COMPANY.founded} in the vibrant tourism hub of Thamel, Kathmandu, <strong>Skywalks Holidays</strong> has grown into Nepal&apos;s most comprehensive travel service agency.
               </p>
               <p className="text-sm md:text-base text-[#475569] leading-relaxed">
-                What began as a dedicated mountain trekking outfit has expanded into a full-scale travel company handling international flight ticketing, luxury hotel reservations, visa documentation assistance, bus bookings, and customized holiday packages worldwide.
+                What began as a dedicated mountain trekking outfit has expanded into a full-scale travel company handling international flight ticketing, luxury hotel reservations, visa documentation assistance, domestic and international holiday packages worldwide.
               </p>
               <p className="text-sm md:text-base text-[#475569] leading-relaxed">
                 Our approach is rooted in personal service, absolute transparency, and uncompromised quality. We treat every trip as if it were our own.

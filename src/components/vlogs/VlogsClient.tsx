@@ -19,6 +19,7 @@ import {
   Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { buildCustomWhatsAppLink } from "@/lib/whatsapp";
 
 const VLOG_CATEGORIES = [
   { id: "all", label: "All Videos" },
@@ -90,7 +91,7 @@ const VLOG_ITEMS = [
     host: "Skywalk Visa Desk",
     description:
       "Step-by-step breakdown of document preparation, bank statement requirements, cover letters, and VFS appointment booking in Kathmandu.",
-    packageLink: "/visa-services",
+    packageLink: "/services/visa",
   },
   {
     id: "vlog-5",
@@ -106,7 +107,7 @@ const VLOG_ITEMS = [
     host: "Dr. Bikash Shrestha",
     description:
       "Riding the Shinkansen bullet train, visiting Fushimi Inari shrine, exploring Akihabara, and dining in Shinjuku during cherry blossom season.",
-    packageLink: "/holiday-packages",
+    packageLink: "/services/packages/international",
   },
   {
     id: "vlog-6",
@@ -122,7 +123,7 @@ const VLOG_ITEMS = [
     host: "Pooja & Friends",
     description:
       "Exploring ocean villa amenities, sunset dolphin cruises, buffet dining options, and speedboat transfers from Malé Airport.",
-    packageLink: "/holiday-packages",
+    packageLink: "/services/packages/international",
   },
 ];
 
@@ -419,9 +420,9 @@ export default function VlogsClient() {
                   className="bg-[#f97316] hover:bg-[#ea580c] text-white font-bold w-full md:w-auto"
                 >
                   <a
-                    href={`https://wa.me/97798XXXXXXXX?text=Hello%20Skywalk%20Holidays!%20I%20watched%20the%20vlog%20"${encodeURIComponent(
-                      activeVlog.title
-                    )}"%20and%20want%20to%20book%20this%20tour%20package.`}
+                    href={buildCustomWhatsAppLink(
+                      `Hello Skywalk Holidays! I watched the vlog "${activeVlog.title}" (${activeVlog.destination}) and want to inquire about booking this tour package.`
+                    )}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
