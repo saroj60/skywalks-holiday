@@ -103,7 +103,7 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex gap-3 mt-6">
               {[
-                { icon: FacebookIcon, href: "#", label: "Facebook" },
+                { icon: FacebookIcon, href: "https://www.facebook.com/p/SkyWalk-Holidays-61569789310239/", label: "Facebook" },
                 { icon: InstagramIcon, href: "#", label: "Instagram" },
                 { icon: YoutubeIcon, href: "#", label: "YouTube" },
                 { icon: XIcon, href: "#", label: "X (Twitter)" },

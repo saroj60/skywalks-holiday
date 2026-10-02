@@ -37,10 +37,10 @@ const XIcon = () => (
 );
 
 const SOCIAL_LINKS = [
-  { icon: FacebookIcon, href: "https://facebook.com", label: "Facebook" },
-  { icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
-  { icon: YoutubeIcon, href: "https://youtube.com", label: "YouTube" },
-  { icon: XIcon, href: "https://x.com", label: "X (Twitter)" },
+  { icon: FacebookIcon, href: "https://www.facebook.com/p/SkyWalk-Holidays-61569789310239/", label: "Facebook" },
+  { icon: InstagramIcon, href: "#", label: "Instagram" },
+  { icon: YoutubeIcon, href: "#", label: "YouTube" },
+  { icon: XIcon, href: "#", label: "X (Twitter)" },
 ];
 
 export default function ContactPage() {

@@ -86,19 +86,19 @@ export default function RootLayout({
     "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85",
     "@id": "https://skywalkholidays.com",
     "url": "https://skywalkholidays.com",
-    "telephone": "+977-1-4XXXXXX",
+    "telephone": "+977 971-4491103",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Thamel Marg, Thamel",
+      "streetAddress": "Pepsicola",
       "addressLocality": "Kathmandu",
       "postalCode": "44600",
       "addressCountry": "NP"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 27.7152,
-      "longitude": 85.3123
+      "latitude": 27.6946,
+      "longitude": 85.3639
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -108,15 +108,14 @@ export default function RootLayout({
         "Wednesday",
         "Thursday",
         "Friday",
-        "Saturday"
+        "Saturday",
+        "Sunday"
       ],
-      "opens": "09:00",
-      "closes": "19:00"
+      "opens": "00:00",
+      "closes": "23:59"
     },
     "sameAs": [
-      "https://facebook.com/skywalkholidays",
-      "https://instagram.com/skywalkholidays",
-      "https://youtube.com/skywalkholidays"
+      "https://www.facebook.com/p/SkyWalk-Holidays-61569789310239/"
     ]
   };
 

@@ -19,6 +19,7 @@ export const COMPANY = {
   mobile: "+977 971-4491103",
   email: "skywalktoursandtravels32@gmail.com",
   address: "Pepsicola, Kathmandu, Nepal, 44600",
+  facebook: "https://www.facebook.com/p/SkyWalk-Holidays-61569789310239/",
   hours: "Always open",
   recommendation: "100% recommend (8 reviews)",
   founded: 2010,
