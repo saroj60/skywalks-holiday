@@ -104,8 +104,7 @@ export default function ContactPage() {
                 </div>
                 <div className="text-sm text-[#475569] leading-relaxed pl-1">
                   <strong>Skywalks Holidays Pvt. Ltd.</strong><br />
-                  Thamel Marg, Thamel (Near Garden of Dreams)<br />
-                  Kathmandu 44600, Nepal
+                  Pepsicola, Kathmandu, Nepal, 44600
                 </div>
               </div>
 
@@ -122,15 +121,15 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2 text-sm text-[#475569] pl-1">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-[#0a1628]">WhatsApp Support:</span>
-                    <a href="https://wa.me/977980000000" target="_blank" rel="noopener noreferrer" className="text-emerald-600 font-bold hover:underline">
-                      {COMPANY.mobile}
+                    <span className="font-semibold text-[#0a1628]">WhatsApp:</span>
+                    <a href="https://wa.me/9779714491103" target="_blank" rel="noopener noreferrer" className="text-emerald-600 font-bold hover:underline">
+                      +977 971-4491103
                     </a>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-[#0a1628]">Office Landline:</span>
-                    <a href={`tel:${COMPANY.phone}`} className="text-[#0ea5e9] font-bold hover:underline">
-                      {COMPANY.phone}
+                    <span className="font-semibold text-[#0a1628]">Phone Line:</span>
+                    <a href="tel:9714491103" className="text-[#0ea5e9] font-bold hover:underline">
+                      971-4491103
                     </a>
                   </div>
                 </div>
@@ -143,45 +142,38 @@ export default function ContactPage() {
                     <Mail size={22} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-[#0a1628] text-base">Email Addresses</h3>
-                    <p className="text-xs text-[#64748b]">24-hour response time</p>
+                    <h3 className="font-bold text-[#0a1628] text-base">Email Address</h3>
+                    <p className="text-xs text-[#64748b]">Official agency inbox</p>
                   </div>
                 </div>
                 <div className="space-y-1.5 text-sm text-[#475569] pl-1">
                   <div>
-                    <span className="font-semibold text-[#0a1628]">General Inquiry:</span>{" "}
-                    <a href={`mailto:${COMPANY.email}`} className="text-[#0ea5e9] hover:underline">
-                      {COMPANY.email}
-                    </a>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-[#0a1628]">Customer Support:</span>{" "}
-                    <a href="mailto:support@skywalkholidays.com" className="text-[#0ea5e9] hover:underline">
-                      support@skywalkholidays.com
+                    <a href="mailto:skywalktoursandtravels32@gmail.com" className="text-[#0ea5e9] font-bold hover:underline break-all">
+                      skywalktoursandtravels32@gmail.com
                     </a>
                   </div>
                 </div>
               </div>
 
-              {/* Business Hours Card */}
+              {/* Business Hours & Reviews Card */}
               <div className="bg-white rounded-3xl p-6 border border-[#e2e8f0] shadow-sm space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-2xl bg-[#faf5ff] text-purple-600 flex items-center justify-center shrink-0">
                     <Clock size={22} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-[#0a1628] text-base">Business Hours</h3>
-                    <p className="text-xs text-[#64748b]">Nepal Standard Time (GMT+5:45)</p>
+                    <h3 className="font-bold text-[#0a1628] text-base">Business Hours &amp; Rating</h3>
+                    <p className="text-xs text-[#64748b]">24/7 Availability</p>
                   </div>
                 </div>
-                <div className="space-y-1 text-xs md:text-sm text-[#475569] pl-1">
+                <div className="space-y-2 text-xs md:text-sm text-[#475569] pl-1">
                   <div className="flex justify-between border-b border-[#f1f5f9] pb-1.5">
-                    <span className="font-semibold text-[#0a1628]">Monday – Saturday:</span>
-                    <span>9:00 AM – 7:00 PM</span>
+                    <span className="font-semibold text-[#0a1628]">Working Hours:</span>
+                    <span className="font-bold text-emerald-600">Always Open</span>
                   </div>
                   <div className="flex justify-between pt-1">
-                    <span className="font-semibold text-[#0a1628]">Sunday:</span>
-                    <span>10:00 AM – 5:00 PM</span>
+                    <span className="font-semibold text-[#0a1628]">Customer Reviews:</span>
+                    <span className="font-bold text-amber-500">100% Recommend (8 Reviews)</span>
                   </div>
                 </div>
               </div>
@@ -232,23 +224,23 @@ export default function ContactPage() {
               </div>
             </div>
             <a
-              href="tel:+977980000000"
+              href="tel:9714491103"
               className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#ea580c] text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-xl transition-all text-sm shrink-0"
             >
               <Phone size={18} />
-              Call Emergency Helpline
+              Call Helpline: 971-4491103
             </a>
           </div>
         </div>
       </section>
 
-      {/* Google Maps Integration Placeholder Section */}
+      {/* Google Maps Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionHeader
             eyebrow="Visit Our Office"
             title="Locate Skywalks Holidays in Kathmandu"
-            subtitle="We welcome you to visit our office in Thamel for in-person travel consultations."
+            subtitle="We welcome you to visit our office in Pepsicola for in-person travel consultations."
           />
 
           <div className="bg-[#f8fafc] rounded-3xl overflow-hidden border border-[#e2e8f0] p-4 shadow-xl">
@@ -258,13 +250,13 @@ export default function ContactPage() {
                 <MapPin size={32} />
               </div>
 
-              <h3 className="text-2xl font-bold mb-1">Thamel Marg, Kathmandu</h3>
+              <h3 className="text-2xl font-bold mb-1">Pepsicola, Kathmandu, Nepal, 44600</h3>
               <p className="text-white/70 text-xs sm:text-sm max-w-md mb-6">
-                Located near Garden of Dreams, Thamel — Kathmandu 44600, Nepal. Easy access and parking available.
+                Pepsicola, Kathmandu, Nepal, 44600. Easy access &amp; 24/7 travel consultation service available.
               </p>
 
               <a
-                href="https://maps.google.com/?q=Thamel+Kathmandu+Nepal"
+                href="https://maps.google.com/?q=Pepsicola+Kathmandu+Nepal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-[#0a1628] hover:bg-[#0ea5e9] hover:text-white font-bold px-6 py-3 rounded-xl shadow-lg transition-colors text-xs sm:text-sm"
@@ -280,11 +272,11 @@ export default function ContactPage() {
       {/* Footer CTA */}
       <CTABanner
         title="Prefer Personal Assistance Over Phone or WhatsApp?"
-        subtitle="Our travel specialists are available 7 days a week to help you plan your dream journey."
+        subtitle="Our travel specialists are available 24/7 to help you plan your dream journey."
         primaryLabel="Plan Your Trip"
         primaryHref="/services/custom"
         secondaryLabel="WhatsApp Us Now"
-        secondaryHref="https://wa.me/977980000000"
+        secondaryHref="https://wa.me/9779714491103"
       />
     </>
   );

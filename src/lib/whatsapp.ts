@@ -4,7 +4,7 @@
  */
 
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "977980000000";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9779714491103";
 
 interface StandardInquiryParams {
   service: string;

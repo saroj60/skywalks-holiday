@@ -14,11 +14,13 @@ export const COMPANY = {
   name: "Skywalks Holidays",
   tagline: "Your Journey, Our Passion",
   description:
-    "Nepal's premier international travel agency offering world-class holiday experiences since 2010.",
-  phone: "+977-1-4XXXXXX",
-  mobile: "+977-98XXXXXXXX",
-  email: "info@skywalkholidays.com",
-  address: "Thamel, Kathmandu, Nepal",
+    "Nepal's premier travel agency offering world-class flight bookings, hotel stays, holiday packages & visa assistance.",
+  phone: "971-4491103",
+  mobile: "+977 971-4491103",
+  email: "skywalktoursandtravels32@gmail.com",
+  address: "Pepsicola, Kathmandu, Nepal, 44600",
+  hours: "Always open",
+  recommendation: "100% recommend (8 reviews)",
   founded: 2010,
 } as const;
 
@@ -28,10 +30,10 @@ export const NAV_LINKS = [
     label: "Services",
     href: "#",
     children: [
-      { label: "Flight Tickets", href: "/flights" },
-      { label: "Hotel Booking", href: "/hotels" },
-      { label: "Holiday Packages", href: "/holiday-packages" },
-      { label: "Visa Assistance", href: "/visa-services" },
+      { label: "Flight Tickets", href: "/services/flights" },
+      { label: "Hotel Booking", href: "/services/hotels" },
+      { label: "Holiday Packages", href: "/services/packages/international" },
+      { label: "Visa Assistance", href: "/services/visa" },
       { label: "Travel Insurance", href: "/services/insurance" },
       { label: "Custom Tours", href: "/services/custom" },
     ],
@@ -48,7 +50,7 @@ export const SERVICES = [
     title: "Flight Ticket Booking",
     description:
       "International flights at the best fares. Compare leading airlines and book instantly.",
-    href: "/flights",
+    href: "/services/flights",
     color: "sky",
   },
   {
@@ -56,7 +58,7 @@ export const SERVICES = [
     title: "Hotel Booking",
     description:
       "Handpicked hotels from boutique resorts to 5-star luxury hotels worldwide.",
-    href: "/hotels",
+    href: "/services/hotels",
     color: "navy",
   },
   {
@@ -64,7 +66,7 @@ export const SERVICES = [
     title: "International Holiday Packages",
     description:
       "Curated luxury and budget holiday packages to Dubai, Thailand, Bali, Europe, and beyond.",
-    href: "/holiday-packages",
+    href: "/services/packages/international",
     color: "orange",
   },
   {
@@ -72,7 +74,7 @@ export const SERVICES = [
     title: "Visa Assistance",
     description:
       "Hassle-free visa processing with expert documentation guidance for 50+ countries.",
-    href: "/visa-services",
+    href: "/services/visa",
     color: "navy",
   },
   {
