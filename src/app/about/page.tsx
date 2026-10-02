@@ -139,7 +139,7 @@ export default function AboutPage() {
             {/* Image */}
             <div className="relative h-80 sm:h-96 md:h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl border border-[#e2e8f0]">
               <Image
-                src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&q=85"
+                src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=85"
                 alt="Skywalks Holidays Travel Agency — Kathmandu Team"
                 fill
                 className="object-cover"

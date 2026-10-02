@@ -49,7 +49,7 @@ const SERVICES_DATA = [
     title: "Customized Tours",
     description: "Personalized travel experiences designed around your needs.",
     href: "/services/custom",
-    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=85",
     ctaText: "Customize Trip",
   },
 ];
