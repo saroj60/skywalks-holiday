@@ -7,7 +7,7 @@ import Destinations from "@/components/sections/Destinations";
 import Testimonials from "@/components/sections/Testimonials";
 import StatsCounter from "@/components/common/StatsCounter";
 import CTABanner from "@/components/common/CTABanner";
-import PartnersStrip from "@/components/sections/PartnersStrip";
+import CountryCardsSection from "@/components/sections/CountryCardsSection";
 
 export default function HomePage() {
   const faqJsonLd = {
@@ -48,7 +48,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <HeroSection />
-      <PartnersStrip />
+      <CountryCardsSection />
       <UpcomingHolidaysSection />
       <ServicesSection />
       <StatsCounter />
