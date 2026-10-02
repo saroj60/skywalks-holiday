@@ -1,5 +1,5 @@
 import React from "react";
-import { Plane, Hotel, Palmtree, FileText, Bus, Map } from "lucide-react";
+import { Plane, Hotel, Palmtree, FileText, Shield, Map } from "lucide-react";
 import ServiceCard from "@/components/common/ServiceCard";
 import SectionHeader from "@/components/common/SectionHeader";
 
@@ -37,12 +37,12 @@ const SERVICES_DATA = [
     ctaText: "Apply for Visa",
   },
   {
-    icon: Bus,
-    title: "Bus Tickets",
-    description: "Convenient bus ticket booking services.",
-    href: "/services/bus",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
-    ctaText: "Book Bus Tickets",
+    icon: Shield,
+    title: "Travel Insurance",
+    description: "Comprehensive medical and trip cancellation coverage.",
+    href: "/services/insurance",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    ctaText: "Get Insurance",
   },
   {
     icon: Map,
