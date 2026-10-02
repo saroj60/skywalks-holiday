@@ -13,8 +13,22 @@ const TABS = [
   { id: "visa", label: "Visa Assistance", icon: FileCheck },
 ];
 
-export default function SearchBar() {
-  const [activeTab, setActiveTab] = useState("flights");
+interface SearchBarProps {
+  activeTab?: string;
+  onTabChange?: (tabId: string) => void;
+}
+
+export default function SearchBar({ activeTab: externalActiveTab, onTabChange }: SearchBarProps) {
+  const [internalActiveTab, setInternalActiveTab] = useState("flights");
+
+  const currentTab = externalActiveTab !== undefined ? externalActiveTab : internalActiveTab;
+
+  const handleTabClick = (tabId: string) => {
+    setInternalActiveTab(tabId);
+    if (onTabChange) {
+      onTabChange(tabId);
+    }
+  };
 
   return (
     <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 overflow-hidden p-3 md:p-4 text-left transition-all duration-300">
@@ -22,11 +36,11 @@ export default function SearchBar() {
       <div className="flex flex-wrap border-b border-[#e2e8f0] pb-2 mb-4 gap-1">
         {TABS.map((tab) => {
           const Icon = tab.icon;
-          const isActive = activeTab === tab.id;
+          const isActive = currentTab === tab.id;
           return (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabClick(tab.id)}
               className={cn(
                 "flex-1 min-w-[120px] flex items-center justify-center gap-2.5 px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer",
                 isActive
@@ -44,7 +58,7 @@ export default function SearchBar() {
       {/* Forms Container */}
       <div className="px-2 pb-2">
         {/* 1. Flights Form */}
-        {activeTab === "flights" && (
+        {currentTab === "flights" && (
           <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
             <div>
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
@@ -84,7 +98,7 @@ export default function SearchBar() {
         )}
 
         {/* 2. Hotels Form */}
-        {activeTab === "hotels" && (
+        {currentTab === "hotels" && (
           <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
             <div className="sm:col-span-2 lg:col-span-2">
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
@@ -117,7 +131,7 @@ export default function SearchBar() {
         )}
 
         {/* 3. Holiday Packages Form */}
-        {activeTab === "packages" && (
+        {currentTab === "packages" && (
           <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
             <div>
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
@@ -156,7 +170,7 @@ export default function SearchBar() {
         )}
 
         {/* 4. Visa Assistance Form */}
-        {activeTab === "visa" && (
+        {currentTab === "visa" && (
           <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
             <div>
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">

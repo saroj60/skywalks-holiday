@@ -246,7 +246,15 @@ export default function HeroSection() {
       {/* Floating Booking / Inquiry Search Card at the Bottom */}
       <div className="relative z-20 container-custom pb-6 md:pb-10">
         <div className="max-w-5xl mx-auto shadow-2xl transform transition-transform hover:-translate-y-1">
-          <SearchBar />
+          <SearchBar
+            activeTab={currentSlide.id}
+            onTabChange={(tabId) => {
+              const idx = HERO_SLIDES.findIndex((s) => s.id === tabId);
+              if (idx !== -1) {
+                setCurrentIndex(idx);
+              }
+            }}
+          />
         </div>
       </div>
     </section>
