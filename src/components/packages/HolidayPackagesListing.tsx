@@ -406,7 +406,7 @@ export default function HolidayPackagesListing() {
 
                 <div>
                   {/* Destination Image */}
-                  <div className="relative h-60 w-full overflow-hidden bg-[#0a1628] pointer-events-none">
+                  <div className="relative h-48 sm:h-60 w-full overflow-hidden bg-[#0a1628] pointer-events-none">
                     <Image
                       src={pkg.image}
                       alt={pkg.title}
@@ -417,54 +417,54 @@ export default function HolidayPackagesListing() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
 
                     {/* Badge */}
-                    <div className="absolute top-4 left-4 bg-[#0ea5e9] text-white text-xs font-extrabold px-3 py-1 rounded-full shadow">
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[#0ea5e9] text-white text-[11px] sm:text-xs font-extrabold px-2.5 py-1 rounded-full shadow">
                       {pkg.badge}
                     </div>
 
                     {/* Discount */}
                     {discountPercent > 0 && (
-                      <div className="absolute top-4 right-4 bg-[#f97316] text-white text-xs font-extrabold px-2.5 py-1 rounded-lg">
+                      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-[#f97316] text-white text-[11px] sm:text-xs font-extrabold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg">
                         {discountPercent}% OFF
                       </div>
                     )}
 
                     {/* Duration Pill */}
-                    <div className="absolute bottom-4 left-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-md text-[#0a1628] text-xs font-bold px-3 py-1 rounded-full shadow">
-                      <Clock size={12} className="text-[#0ea5e9]" />
-                      {pkg.duration}
+                    <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-md text-[#0a1628] text-[11px] sm:text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                      <Clock size={12} className="text-[#0ea5e9] shrink-0" />
+                      <span>{pkg.duration}</span>
                     </div>
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-6 pointer-events-none">
+                  <div className="p-4 sm:p-6 pointer-events-none">
                     {/* Destination */}
-                    <div className="flex items-center justify-between text-xs text-[#64748b] mb-2">
-                      <span className="flex items-center gap-1 font-medium">
-                        <MapPin size={12} className="text-[#0ea5e9]" />
-                        {pkg.destination}
+                    <div className="flex items-center justify-between text-xs text-[#64748b] mb-2 gap-2">
+                      <span className="flex items-center gap-1 font-medium truncate">
+                        <MapPin size={12} className="text-[#0ea5e9] shrink-0" />
+                        <span className="truncate">{pkg.destination}</span>
                       </span>
-                      <span className="flex items-center gap-1 text-amber-500 font-bold">
+                      <span className="flex items-center gap-1 text-amber-500 font-bold shrink-0">
                         <Star size={12} className="fill-amber-400" />
                         {pkg.rating} ({pkg.reviewsCount})
                       </span>
                     </div>
 
                     {/* Package Title */}
-                    <h3 className="text-xl font-bold text-[#0a1628] mb-2 group-hover:text-[#0ea5e9] transition-colors leading-snug">
+                    <h3 className="text-base sm:text-xl font-bold text-[#0a1628] mb-2 group-hover:text-[#0ea5e9] transition-colors leading-snug line-clamp-2">
                       {pkg.title}
                     </h3>
 
                     {/* Short Description */}
-                    <p className="text-xs text-[#64748b] leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-xs text-[#64748b] leading-relaxed mb-3 sm:mb-4 line-clamp-2">
                       {pkg.shortDescription}
                     </p>
 
                     {/* Inclusions */}
-                    <div className="flex flex-wrap gap-1.5 mb-6">
+                    <div className="flex flex-wrap gap-1.5 mb-4 sm:mb-6">
                       {pkg.inclusions.slice(0, 3).map((inc) => (
-                        <span key={inc} className="inline-flex items-center gap-1 text-[11px] text-[#475569] bg-[#f8fafc] border border-[#e2e8f0] px-2.5 py-0.5 rounded-full font-medium">
-                          <Check size={10} className="text-emerald-500" />
-                          {inc}
+                        <span key={inc} className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] text-[#475569] bg-[#f8fafc] border border-[#e2e8f0] px-2 py-0.5 rounded-full font-medium">
+                          <Check size={10} className="text-emerald-500 shrink-0" />
+                          <span className="truncate">{inc}</span>
                         </span>
                       ))}
                     </div>
@@ -472,12 +472,12 @@ export default function HolidayPackagesListing() {
                 </div>
 
                 {/* Price & Action Buttons */}
-                <div className="p-6 pt-0 border-t border-[#f1f5f9] mt-auto">
-                  <div className="flex items-baseline justify-between mb-4 pt-4 pointer-events-none">
+                <div className="p-4 pt-0 sm:p-6 sm:pt-0 border-t border-[#f1f5f9] mt-auto">
+                  <div className="flex flex-wrap items-baseline justify-between gap-1 mb-3 pt-3 pointer-events-none">
                     <div>
-                      <span className="text-xs text-[#94a3b8] block">Starting Price</span>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-xl font-extrabold text-[#0a1628]">
+                      <span className="text-[11px] sm:text-xs text-[#94a3b8] block">Starting Price</span>
+                      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                        <span className="text-base sm:text-xl font-extrabold text-[#0a1628]">
                           NPR {pkg.price.toLocaleString("en-US")}
                         </span>
                         <span className="text-xs text-[#94a3b8] line-through">
@@ -485,13 +485,13 @@ export default function HolidayPackagesListing() {
                         </span>
                       </div>
                     </div>
-                    <span className="text-[11px] text-[#64748b] font-medium">per person</span>
+                    <span className="text-[11px] text-[#64748b] font-medium self-end">per person</span>
                   </div>
 
                   {/* Dual Buttons: View Details (Link) + WhatsApp (Button) */}
                   <div className="grid grid-cols-2 gap-2 relative z-20">
-                    <span className="inline-flex items-center justify-center gap-1.5 w-full text-xs font-semibold py-2.5 rounded-xl border border-[#e2e8f0] bg-white text-[#0a1628] group-hover:bg-[#0a1628] group-hover:text-white transition-colors min-h-[44px]">
-                      <Eye size={14} />
+                    <span className="inline-flex items-center justify-center gap-1 w-full text-[11px] sm:text-xs font-semibold py-2.5 rounded-xl border border-[#e2e8f0] bg-white text-[#0a1628] group-hover:bg-[#0a1628] group-hover:text-white transition-colors min-h-[42px] px-2">
+                      <Eye size={13} className="shrink-0" />
                       View Details
                     </span>
 
@@ -500,9 +500,9 @@ export default function HolidayPackagesListing() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 px-3 rounded-xl shadow-md transition-colors min-h-[44px]"
+                      className="inline-flex items-center justify-center gap-1 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] sm:text-xs font-bold py-2.5 px-2 rounded-xl shadow-md transition-colors min-h-[42px]"
                     >
-                      <MessageSquare size={14} />
+                      <MessageSquare size={13} className="shrink-0" />
                       WhatsApp
                     </a>
                   </div>

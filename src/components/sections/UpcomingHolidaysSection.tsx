@@ -109,22 +109,22 @@ export default function UpcomingHolidaysSection() {
                     )}
 
                     {/* Fixed Date Chip */}
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 bg-[#0a1628]/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-[#38bdf8]">
-                      <Calendar size={14} className="text-[#f97316] shrink-0" />
-                      <span>
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center gap-1.5 bg-[#0a1628]/95 backdrop-blur-md px-2.5 py-1.5 rounded-xl border border-white/10 text-[11px] sm:text-xs font-bold text-[#38bdf8] overflow-hidden">
+                      <Calendar size={13} className="text-[#f97316] shrink-0" />
+                      <span className="truncate">
                         {formatDateString(dep.startDate)} – {formatDateString(dep.endDate)}
                       </span>
                     </div>
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-5 space-y-3">
+                  <div className="p-4 sm:p-5 space-y-3">
                     <div className="flex items-center gap-1.5 text-xs text-[#94a3b8]">
-                      <MapPin size={12} className="text-[#0ea5e9]" />
-                      {dep.destination}
+                      <MapPin size={12} className="text-[#0ea5e9] shrink-0" />
+                      <span className="truncate">{dep.destination}</span>
                     </div>
 
-                    <h3 className="font-bold text-white text-base leading-snug group-hover:text-[#38bdf8] transition-colors">
+                    <h3 className="font-bold text-white text-sm sm:text-base leading-snug group-hover:text-[#38bdf8] transition-colors line-clamp-2">
                       {dep.title}
                     </h3>
 
@@ -147,30 +147,30 @@ export default function UpcomingHolidaysSection() {
                 </div>
 
                 {/* Footer Pricing & CTA */}
-                <div className="p-5 pt-0 border-t border-[#163058]/50 mt-auto">
-                  <div className="flex items-baseline justify-between py-3">
+                <div className="p-4 sm:p-5 pt-0 border-t border-[#163058]/50 mt-auto">
+                  <div className="flex flex-wrap items-baseline justify-between py-2.5 sm:py-3 gap-1">
                     <div>
-                      <span className="text-[11px] text-[#94a3b8] uppercase font-semibold block">Fixed Price</span>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-lg font-extrabold text-white">
+                      <span className="text-[10px] sm:text-[11px] text-[#94a3b8] uppercase font-semibold block">Fixed Price</span>
+                      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                        <span className="text-base sm:text-lg font-extrabold text-white">
                           NPR {dep.price.toLocaleString("en-US")}
                         </span>
-                        <span className="text-xs text-[#94a3b8] line-through">
+                        <span className="text-[11px] sm:text-xs text-[#94a3b8] line-through">
                           NPR {dep.originalPrice.toLocaleString("en-US")}
                         </span>
                       </div>
                     </div>
-                    <span className="text-[11px] text-[#38bdf8] font-bold">All Inclusive</span>
+                    <span className="text-[10px] sm:text-[11px] text-[#38bdf8] font-bold self-end">All Inclusive</span>
                   </div>
 
                   <a
                     href={generateWhatsAppLink(dep)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#ea580c] text-white font-extrabold py-3 px-4 rounded-xl shadow-lg transition-all text-xs min-h-[44px]"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#ea580c] text-white font-extrabold py-3 px-3 rounded-xl shadow-lg transition-all text-xs min-h-[44px]"
                   >
-                    <MessageSquare size={16} />
-                    Reserve Seat on WhatsApp
+                    <MessageSquare size={15} className="shrink-0" />
+                    <span>Reserve Seat on WhatsApp</span>
                   </a>
                 </div>
               </div>

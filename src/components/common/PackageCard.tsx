@@ -84,15 +84,15 @@ export default function PackageCard({
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col flex-1 pointer-events-none">
+      <div className="p-4 sm:p-5 flex flex-col flex-1 pointer-events-none">
         {/* Destination */}
         <div className="flex items-center gap-1.5 text-xs text-[#64748b] mb-2">
-          <MapPin size={12} className="text-[#0ea5e9]" />
-          {destination}
+          <MapPin size={12} className="text-[#0ea5e9] shrink-0" />
+          <span className="truncate">{destination}</span>
         </div>
 
         {/* Title */}
-        <h3 className="font-bold text-[#0a1628] text-base leading-snug mb-3 group-hover:text-[#0ea5e9] transition-colors">
+        <h3 className="font-bold text-[#0a1628] text-sm sm:text-base leading-snug mb-3 group-hover:text-[#0ea5e9] transition-colors line-clamp-2">
           {title}
         </h3>
 
@@ -101,34 +101,36 @@ export default function PackageCard({
           {inclusions.map((inc) => (
             <span
               key={inc}
-              className="inline-flex items-center gap-1 text-xs text-[#475569] bg-[#f8fafc] border border-[#e2e8f0] px-2 py-0.5 rounded-full"
+              className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-[#475569] bg-[#f8fafc] border border-[#e2e8f0] px-2 py-0.5 rounded-full font-medium"
             >
-              <Check size={10} className="text-emerald-500" />
+              <Check size={10} className="text-emerald-500 shrink-0" />
               {inc}
             </span>
           ))}
         </div>
 
         {/* Rating + Price */}
-        <div className="mt-auto flex items-end justify-between">
-          <div>
+        <div className="mt-auto pt-3 border-t border-[#f1f5f9] flex flex-wrap items-end justify-between gap-2">
+          <div className="min-w-0 flex-1">
             <div className="flex items-center gap-1 mb-1">
-              <Star size={13} className="text-amber-400 fill-amber-400" />
-              <span className="text-sm font-semibold text-[#0a1628]">{rating}</span>
-              <span className="text-xs text-[#94a3b8]">({reviews} reviews)</span>
+              <Star size={13} className="text-amber-400 fill-amber-400 shrink-0" />
+              <span className="text-xs sm:text-sm font-semibold text-[#0a1628]">{rating}</span>
+              <span className="text-[11px] sm:text-xs text-[#94a3b8] truncate">({reviews} reviews)</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-[#0a1628]">
+            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+              <span className="text-base sm:text-xl font-bold text-[#0a1628] whitespace-nowrap">
                 NPR {price.toLocaleString("en-US")}
               </span>
-              <span className="text-xs text-[#94a3b8] line-through">
-                NPR {originalPrice.toLocaleString("en-US")}
-              </span>
+              {originalPrice > price && (
+                <span className="text-[11px] sm:text-xs text-[#94a3b8] line-through whitespace-nowrap">
+                  NPR {originalPrice.toLocaleString("en-US")}
+                </span>
+              )}
             </div>
-            <p className="text-xs text-[#64748b]">per person</p>
+            <p className="text-[11px] sm:text-xs text-[#64748b]">per person</p>
           </div>
 
-          <Button size="sm" className="relative z-20 pointer-events-auto">
+          <Button size="sm" className="relative z-20 pointer-events-auto shrink-0 text-xs px-3.5 py-2 min-h-[36px]">
             Book Now
           </Button>
         </div>

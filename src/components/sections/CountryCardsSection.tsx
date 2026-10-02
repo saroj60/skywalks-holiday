@@ -26,7 +26,7 @@ export default function CountryCardsSection() {
             <Link
               key={country.id}
               href={country.href}
-              className="group relative h-72 sm:h-80 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 border border-slate-200/80 flex flex-col justify-between p-4 sm:p-5"
+              className="group relative min-h-[280px] sm:h-80 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 border border-slate-200/80 flex flex-col justify-between p-4 sm:p-5"
             >
               {/* Country Background Image */}
               <Image
@@ -41,7 +41,7 @@ export default function CountryCardsSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
 
               {/* Top Badges Row */}
-              <div className="relative z-10 flex flex-wrap items-center justify-between gap-1.5">
+              <div className="relative z-10 flex flex-wrap items-center justify-between gap-1.5 w-full">
                 {/* Flag + Badge */}
                 <div className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-bold text-[#0a1628] shadow-lg border border-white/60">
                   <span className="text-sm">{country.flag}</span>
@@ -56,7 +56,7 @@ export default function CountryCardsSection() {
               </div>
 
               {/* Bottom Content Area */}
-              <div className="relative z-10 text-left mt-auto">
+              <div className="relative z-10 text-left mt-auto pt-6">
                 <div className="text-[11px] sm:text-xs font-medium text-sky-300 flex items-center gap-1 mb-1">
                   <MapPin size={11} className="text-sky-400 shrink-0" />
                   <span className="truncate">{country.subtitle}</span>
@@ -66,17 +66,17 @@ export default function CountryCardsSection() {
                   {country.name}
                 </h3>
 
-                <div className="pt-3 border-t border-white/15 flex items-center justify-between text-white/90">
+                <div className="pt-3 border-t border-white/15 flex flex-wrap items-center justify-between gap-2 text-white/90">
                   <div>
                     <span className="text-[10px] text-slate-300 uppercase tracking-wider block font-semibold">
                       Packages From
                     </span>
-                    <span className="text-sm font-extrabold text-white">
+                    <span className="text-sm font-extrabold text-white whitespace-nowrap">
                       NPR {country.startingPrice.toLocaleString("en-US")}
                     </span>
                   </div>
 
-                  <div className="w-8 h-8 rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-[#0ea5e9] group-hover:text-white flex items-center justify-center text-white transition-all duration-300 group-hover:scale-110">
+                  <div className="w-8 h-8 rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-[#0ea5e9] group-hover:text-white flex items-center justify-center text-white transition-all duration-300 group-hover:scale-110 shrink-0">
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
                   </div>
                 </div>
