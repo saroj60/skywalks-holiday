@@ -15,8 +15,8 @@ export default function WhatsAppFloatingButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white group relative"
       title="Chat on WhatsApp"
+      className="fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white group cursor-pointer"
     >
       {/* Gentle pulsing aura */}
       <span className="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none" />
