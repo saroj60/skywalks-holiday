@@ -15,16 +15,18 @@ export default function HolidayPackagesPage() {
   return (
     <>
       {/* Hero Banner Section */}
-      <section className="relative w-full overflow-hidden bg-[#0a1628]">
-        <div className="w-full max-w-[1920px] mx-auto relative aspect-[2.5/1] min-h-[220px] sm:min-h-[300px] md:min-h-[380px] lg:min-h-[440px]">
-          <Image
-            src="/images/services-hero-banner.png"
-            alt="Explore Our Holiday Packages — Skywalks Holidays"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
+      <section className="bg-[#0a1628] py-3 sm:py-5 overflow-hidden">
+        <div className="container-custom">
+          <div className="relative w-full h-[180px] sm:h-[250px] md:h-[300px] lg:h-[340px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <Image
+              src="/images/services-hero-banner.png"
+              alt="Explore Our Holiday Packages — Skywalks Holidays"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+            />
+          </div>
         </div>
       </section>
 
