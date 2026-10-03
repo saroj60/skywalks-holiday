@@ -155,11 +155,26 @@ export default function GalleryClient() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
+  const [items, setItems] = useState(GALLERY_ITEMS);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("skywalk_gallery_photos");
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setItems(parsed);
+          }
+        } catch (e) {}
+      }
+    }
+  }, []);
 
   const filteredItems =
     activeCategory === "all"
-      ? GALLERY_ITEMS
-      : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
+      ? items
+      : items.filter((item) => item.category === activeCategory);
 
   const handleNextLightbox = useCallback(() => {
     if (lightboxIndex === null) return;

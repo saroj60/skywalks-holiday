@@ -5,6 +5,7 @@ import PackageManager from "./PackageManager";
 import DepartureManager from "./DepartureManager";
 import FlightManager from "./FlightManager";
 import HotelManager from "./HotelManager";
+import GalleryManager from "./GalleryManager";
 import {
   Package,
   RefreshCw,
@@ -15,6 +16,7 @@ import {
   Flame,
   Plane,
   Hotel,
+  Camera,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,7 +34,7 @@ export default function AdminDashboard() {
   const [loginError, setLoginError] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
 
-  const [activeTab, setActiveTab] = useState<"packages" | "departures" | "flights" | "hotels">("packages");
+  const [activeTab, setActiveTab] = useState<"packages" | "departures" | "flights" | "hotels" | "gallery">("packages");
 
   // Verify auth session background verification
   useEffect(() => {
@@ -256,6 +258,16 @@ export default function AdminDashboard() {
             </Button>
 
             <Button
+              variant={activeTab === "gallery" ? "default" : "outline-white"}
+              size="sm"
+              onClick={() => setActiveTab("gallery")}
+              className="gap-2 min-h-[40px]"
+            >
+              <Camera size={16} className="text-purple-400" />
+              Photo Gallery
+            </Button>
+
+            <Button
               variant="outline-white"
               size="sm"
               onClick={handleLogout}
@@ -275,8 +287,10 @@ export default function AdminDashboard() {
         <DepartureManager />
       ) : activeTab === "flights" ? (
         <FlightManager />
-      ) : (
+      ) : activeTab === "hotels" ? (
         <HotelManager />
+      ) : (
+        <GalleryManager />
       )}
     </div>
   );
