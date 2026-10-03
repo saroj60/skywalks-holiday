@@ -8,6 +8,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import StatsCounter from "@/components/common/StatsCounter";
 import CTABanner from "@/components/common/CTABanner";
 import CountryCardsSection from "@/components/sections/CountryCardsSection";
+import VideoGuidesSection from "@/components/sections/VideoGuidesSection";
 
 export default function HomePage() {
   const faqJsonLd = {
@@ -54,6 +55,7 @@ export default function HomePage() {
       <StatsCounter />
       <FeaturedPackages />
       <Destinations />
+      <VideoGuidesSection />
       <WhyChooseUs />
       <Testimonials />
       <CTABanner />
