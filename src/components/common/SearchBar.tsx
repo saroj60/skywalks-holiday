@@ -7,10 +7,10 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 const TABS = [
-  { id: "flights", label: "Flights", icon: Plane },
-  { id: "hotels", label: "Hotels", icon: Hotel },
-  { id: "packages", label: "Holiday Packages", icon: Globe },
-  { id: "visa", label: "Visa Assistance", icon: FileCheck },
+  { id: "flights", label: "Flights", shortLabel: "Flights", icon: Plane },
+  { id: "hotels", label: "Hotels", shortLabel: "Hotels", icon: Hotel },
+  { id: "packages", label: "Holiday Packages", shortLabel: "Packages", icon: Globe },
+  { id: "visa", label: "Visa Assistance", shortLabel: "Visa", icon: FileCheck },
 ];
 
 interface SearchBarProps {
@@ -32,8 +32,8 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
 
   return (
     <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 overflow-hidden p-3 md:p-4 text-left transition-all duration-300">
-      {/* Tab Navigation */}
-      <div className="flex flex-wrap border-b border-[#e2e8f0] pb-2 mb-4 gap-1">
+      {/* Tab Navigation - Horizontal Scrollable on Mobile */}
+      <div className="flex border-b border-[#e2e8f0] pb-2 mb-4 gap-1.5 overflow-x-auto no-scrollbar scroll-smooth">
         {TABS.map((tab) => {
           const Icon = tab.icon;
           const isActive = currentTab === tab.id;
@@ -42,14 +42,15 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
               key={tab.id}
               onClick={() => handleTabClick(tab.id)}
               className={cn(
-                "flex-1 min-w-[75px] sm:min-w-[120px] flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-4 py-2 sm:py-3 rounded-2xl text-[11px] sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap",
+                "flex-1 min-w-[70px] sm:min-w-[120px] shrink-0 sm:shrink flex items-center justify-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-2 sm:py-3 rounded-2xl text-[11px] sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap select-none",
                 isActive
                   ? "bg-[#0a1628] text-white shadow-md"
                   : "text-[#64748b] hover:text-[#0a1628] hover:bg-[#f1f5f9]"
               )}
             >
               <Icon size={14} className={cn("shrink-0 sm:w-4 sm:h-4", isActive ? "text-[#0ea5e9]" : "text-[#64748b]")} />
-              <span>{tab.label}</span>
+              <span className="hidden sm:inline">{tab.label}</span>
+              <span className="inline sm:hidden">{tab.shortLabel}</span>
             </button>
           );
         })}
