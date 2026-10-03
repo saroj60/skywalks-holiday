@@ -197,9 +197,9 @@ export default function GalleryClient() {
   return (
     <div className="bg-[#f8fafc] min-h-screen pb-20">
       {/* Hero Banner Section */}
-      <section className="bg-[#0a1628] text-white overflow-hidden py-4 sm:py-8">
+      <section className="bg-[#0a1628] text-white overflow-hidden py-2 sm:py-4">
         <div className="container-custom">
-          <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[2.5/1] min-h-[260px] sm:min-h-[380px] md:min-h-[460px]">
+          <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[2.5/1]">
             <Image
               src="/images/gallery-hero-banner.png"
               alt="Our Travel Photo Gallery — Skywalks Holidays"
@@ -213,7 +213,7 @@ export default function GalleryClient() {
       </section>
 
       {/* Category Navigation Tabs */}
-      <section className="container-custom -mt-7 relative z-20 mb-10">
+      <section className="container-custom -mt-5 sm:-mt-7 relative z-20 mb-10">
         <div className="bg-white rounded-2xl p-2.5 shadow-xl border border-[#e2e8f0] flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
           {CATEGORIES.map((cat) => (
             <button

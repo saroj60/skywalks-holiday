@@ -15,9 +15,9 @@ export default function HolidayPackagesPage() {
   return (
     <>
       {/* Hero Banner Section */}
-      <section className="bg-[#0a1628] text-white overflow-hidden py-4 sm:py-8">
+      <section className="bg-[#0a1628] text-white overflow-hidden py-2 sm:py-4">
         <div className="container-custom">
-          <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[2.5/1] min-h-[260px] sm:min-h-[380px] md:min-h-[460px]">
+          <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[2.5/1]">
             <Image
               src="/images/services-hero-banner.png"
               alt="Explore Our Holiday Packages — Skywalks Holidays"
