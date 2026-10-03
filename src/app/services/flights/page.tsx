@@ -97,23 +97,21 @@ export default function FlightsPage() {
   return (
     <>
       {/* 1. Hero Banner Section */}
-      <section className="bg-[#0a1628] text-white overflow-hidden py-2 sm:py-4">
-        <div className="container-custom">
-          <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[2.67/1]">
-            <Image
-              src="/images/flights-hero-banner.png"
-              alt="Flight Ticket Booking Assistance — Skywalks Holidays"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="100vw"
-            />
-          </div>
+      <section className="relative w-full overflow-hidden bg-[#0a1628]">
+        <div className="w-full max-w-[1920px] mx-auto relative aspect-[2.67/1] min-h-[200px] sm:min-h-[280px] md:min-h-[360px] lg:min-h-[420px]">
+          <Image
+            src="/images/flights-hero-banner.png"
+            alt="Flight Ticket Booking Assistance — Skywalks Holidays"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
         </div>
       </section>
 
       {/* 2. Flight Inquiry Form Section */}
-      <section className="relative z-20 -mt-6 sm:-mt-8 pb-16 px-4">
+      <section className="relative z-20 -mt-10 sm:-mt-14 pb-16 px-4">
         <div className="container-custom">
           <FlightInquiryForm />
         </div>
