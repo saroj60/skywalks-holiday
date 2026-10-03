@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Package, MapPin, Sparkles } from "lucide-react";
@@ -8,6 +8,22 @@ import { POPULAR_COUNTRIES } from "@/lib/constants";
 import SectionHeader from "@/components/common/SectionHeader";
 
 export default function CountryCardsSection() {
+  const [countriesList, setCountriesList] = useState(POPULAR_COUNTRIES);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("skywalk_countries");
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setCountriesList(parsed.filter((c: any) => c.featured !== false));
+          }
+        } catch (e) {}
+      }
+    }
+  }, []);
+
   return (
     <section className="section-padding bg-slate-50 relative overflow-hidden">
       {/* Background ambient radial glow */}
@@ -22,7 +38,7 @@ export default function CountryCardsSection() {
 
         {/* 4-column responsive grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {POPULAR_COUNTRIES.map((country) => (
+          {countriesList.map((country) => (
             <Link
               key={country.id}
               href={country.href}

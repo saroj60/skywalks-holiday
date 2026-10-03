@@ -6,6 +6,7 @@ import DepartureManager from "./DepartureManager";
 import FlightManager from "./FlightManager";
 import HotelManager from "./HotelManager";
 import GalleryManager from "./GalleryManager";
+import CountryManager from "./CountryManager";
 import {
   Package,
   RefreshCw,
@@ -17,6 +18,7 @@ import {
   Plane,
   Hotel,
   Camera,
+  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,7 +36,7 @@ export default function AdminDashboard() {
   const [loginError, setLoginError] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
 
-  const [activeTab, setActiveTab] = useState<"packages" | "departures" | "flights" | "hotels" | "gallery">("packages");
+  const [activeTab, setActiveTab] = useState<"packages" | "countries" | "departures" | "flights" | "hotels" | "gallery">("packages");
 
   // Verify auth session background verification
   useEffect(() => {
@@ -228,6 +230,16 @@ export default function AdminDashboard() {
             </Button>
 
             <Button
+              variant={activeTab === "countries" ? "default" : "outline-white"}
+              size="sm"
+              onClick={() => setActiveTab("countries")}
+              className="gap-2 min-h-[40px]"
+            >
+              <Globe size={16} className="text-[#0ea5e9]" />
+              Countries &amp; Destinations
+            </Button>
+
+            <Button
               variant={activeTab === "departures" ? "default" : "outline-white"}
               size="sm"
               onClick={() => setActiveTab("departures")}
@@ -283,6 +295,8 @@ export default function AdminDashboard() {
       {/* Main Body */}
       {activeTab === "packages" ? (
         <PackageManager />
+      ) : activeTab === "countries" ? (
+        <CountryManager />
       ) : activeTab === "departures" ? (
         <DepartureManager />
       ) : activeTab === "flights" ? (

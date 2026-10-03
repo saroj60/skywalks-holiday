@@ -53,7 +53,7 @@ export interface PackageRecord {
   status: "ACTIVE" | "DRAFT" | "ARCHIVED";
 }
 
-const INITIAL_PACKAGES: PackageRecord[] = [
+export const INITIAL_PACKAGES: PackageRecord[] = [
   {
     id: 1,
     title: "Dubai Extravaganza & Desert Safari",
