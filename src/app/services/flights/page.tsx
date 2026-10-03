@@ -96,37 +96,19 @@ export default function FlightsPage() {
 
   return (
     <>
-      {/* 1. Hero Section */}
-      <section className="bg-gradient-to-br from-[#0a1628] via-[#163058] to-[#0ea5e9] py-20 md:py-28 text-white relative overflow-hidden">
-        {/* Background Overlay */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-
-        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-6">
-            <Plane size={16} className="text-[#0ea5e9] rotate-45" />
-            <span className="text-white text-xs font-semibold tracking-wider uppercase">
-              Domestic &amp; International Flight Assistance
-            </span>
+      {/* 1. Hero Banner Section */}
+      <section className="bg-[#0a1628] text-white overflow-hidden py-4 sm:py-8">
+        <div className="container-custom">
+          <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[2.5/1] min-h-[260px] sm:min-h-[380px] md:min-h-[460px]">
+            <Image
+              src="/images/flights-hero-banner.png"
+              alt="Flight Ticket Booking Assistance — Skywalks Holidays"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+            />
           </div>
-
-          {/* Hero Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-            Book Your Next Flight With{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] via-[#38bdf8] to-white">
-              Confidence.
-            </span>
-          </h1>
-
-          {/* Hero Subtitle */}
-          <p className="text-white/80 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto font-normal">
-            Whether flying across Nepal or traveling around the globe, our flight ticketing team provides competitive fares, personalized itineraries, and 24/7 rebooking support.
-          </p>
         </div>
       </section>
 
@@ -224,9 +206,9 @@ export default function FlightsPage() {
         title="Need Group Flight Booking or Urgent Assistance?"
         subtitle="Speak directly with our flight desk for group rates, corporate ticketing, or emergency rebooking."
         primaryLabel="Call Flight Desk"
-        primaryHref="tel:+97798XXXXXXXX"
+        primaryHref="tel:9714491103"
         secondaryLabel="WhatsApp Us"
-        secondaryHref="https://wa.me/977980000000"
+        secondaryHref="https://wa.me/9779714491103"
       />
     </>
   );
