@@ -60,6 +60,11 @@ export const metadata: Metadata = {
       "Book flights, hotels, holiday packages and visa assistance with Skywalk Holidays. Your trusted travel partner from Nepal.",
     images: ["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85"],
   },
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   robots: {
     index: true,
     follow: true,

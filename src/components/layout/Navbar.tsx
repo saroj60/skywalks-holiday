@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown, Phone, Mail, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, COMPANY } from "@/lib/constants";
@@ -50,15 +51,22 @@ export default function Navbar() {
       >
         <div className="container-custom flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#0ea5e9] to-[#0a1628] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-              <Plane size={18} className="text-white rotate-45" />
+          <Link href="/" className="flex items-center gap-2.5 group py-1">
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden shadow-md border border-[#0ea5e9]/30 group-hover:scale-105 group-hover:border-[#0ea5e9] transition-all shrink-0 bg-[#0a1628]">
+              <Image
+                src="/images/logo.png"
+                alt="Skywalks Holidays Logo"
+                fill
+                className="object-cover"
+                sizes="44px"
+                priority
+              />
             </div>
             <div>
-              <span className="font-bold text-[#0a1628] text-lg leading-none block">
+              <span className="font-extrabold text-[#0a1628] text-lg leading-none block group-hover:text-[#0ea5e9] transition-colors">
                 Skywalks
               </span>
-              <span className="text-[#0ea5e9] text-xs font-semibold tracking-widest uppercase leading-none">
+              <span className="text-[#0ea5e9] text-[11px] font-bold tracking-widest uppercase leading-none block mt-0.5">
                 Holidays
               </span>
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Plane, Phone, Mail, MapPin, Send } from "lucide-react";
 
 /* Inline SVG social icons (lucide-react doesn't ship brand icons) */
@@ -63,15 +64,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-5">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#0ea5e9] to-[#163058] flex items-center justify-center">
-                <Plane size={18} className="text-white rotate-45" />
+            <Link href="/" className="flex items-center gap-2.5 mb-5 group">
+              <div className="relative w-11 h-11 rounded-full overflow-hidden shadow-md border border-white/20 group-hover:scale-105 group-hover:border-[#0ea5e9] transition-all shrink-0 bg-[#0a1628]">
+                <Image
+                  src="/images/logo.png"
+                  alt="Skywalks Holidays Logo"
+                  fill
+                  className="object-cover"
+                  sizes="44px"
+                />
               </div>
               <div>
-                <span className="font-bold text-white text-lg leading-none block">
+                <span className="font-extrabold text-white text-lg leading-none block group-hover:text-[#0ea5e9] transition-colors">
                   Skywalks
                 </span>
-                <span className="text-[#0ea5e9] text-xs font-semibold tracking-widest uppercase leading-none">
+                <span className="text-[#0ea5e9] text-[11px] font-bold tracking-widest uppercase leading-none block mt-0.5">
                   Holidays
                 </span>
               </div>
