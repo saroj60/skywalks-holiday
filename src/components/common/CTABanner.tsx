@@ -30,13 +30,13 @@ export default function CTABanner({
         src={bgImage}
         alt="Travel Background"
         fill
-        className="object-cover object-center brightness-75 scale-105"
+        className="object-cover object-center scale-105"
         sizes="100vw"
       />
 
-      {/* Dark Gradient Overlays for High Contrast & Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/75 to-[#0a1628]/95" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-[#0a1628]/60" />
+      {/* Light Overlay for clear image visibility & text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/65 via-[#0a1628]/40 to-[#0a1628]/65" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/40 via-transparent to-[#0a1628]/70" />
 
       <div className="relative container-custom py-20 text-center z-10">
         {/* Icon */}
