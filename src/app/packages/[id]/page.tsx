@@ -1005,7 +1005,7 @@ export default async function PackageDetailPage({
 
       <div className="container-custom">
         {/* Main Content Layout with Sticky Sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
           {/* Left Column: All 6 Required Detail Modules */}
           <div className="lg:col-span-2 space-y-12 text-left">
             
@@ -1244,15 +1244,13 @@ export default async function PackageDetailPage({
           </div>
 
           {/* Right Column: Sticky Inquiry Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-28">
-              <PackageInquirySidebar
-                packageTitle={pkg.title}
-                packagePrice={pkg.price}
-                destination={pkg.destination}
-                duration={pkg.duration}
-              />
-            </div>
+          <div className="lg:col-span-1 sticky top-28 self-start z-20">
+            <PackageInquirySidebar
+              packageTitle={pkg.title}
+              packagePrice={pkg.price}
+              destination={pkg.destination}
+              duration={pkg.duration}
+            />
           </div>
 
         </div>
