@@ -20,6 +20,7 @@ import {
   Car,
   CheckCircle2,
   XCircle,
+  Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -211,10 +212,78 @@ export default function PackageManager() {
   const [activeTab, setActiveTab] = useState<"general" | "intro" | "itinerary" | "cost" | "hotel">("general");
   const [editingPackage, setEditingPackage] = useState<Partial<PackageRecord> | null>(null);
 
-  // Tag inputs
+  // Tag & file upload inputs
   const [newInclusion, setNewInclusion] = useState("");
   const [newExclusion, setNewExclusion] = useState("");
   const [newGalleryUrl, setNewGalleryUrl] = useState("");
+  const [uploadingCover, setUploadingCover] = useState(false);
+  const [uploadingGallery, setUploadingGallery] = useState(false);
+
+  // Cover image file upload handler
+  const handleCoverUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !editingPackage) return;
+
+    setUploadingCover(true);
+    try {
+      const data = new FormData();
+      data.append("file", file);
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: data,
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json.url) {
+          setEditingPackage((prev) => (prev ? { ...prev, coverImage: json.url } : null));
+        }
+      } else {
+        alert("Image upload failed. Please try again.");
+      }
+    } catch (err) {
+      alert("Error uploading image from local device.");
+    } finally {
+      setUploadingCover(false);
+    }
+  };
+
+  // Gallery image file upload handler
+  const handleGalleryUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !editingPackage) return;
+
+    setUploadingGallery(true);
+    try {
+      const data = new FormData();
+      data.append("file", file);
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: data,
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json.url) {
+          setEditingPackage((prev) => {
+            if (!prev) return null;
+            return {
+              ...prev,
+              gallery: [...(prev.gallery || []), json.url],
+            };
+          });
+        }
+      } else {
+        alert("Gallery photo upload failed.");
+      }
+    } catch (err) {
+      alert("Error uploading photo from local device.");
+    } finally {
+      setUploadingGallery(false);
+    }
+  };
 
   // Itinerary day inputs
   const [newDayLabel, setNewDayLabel] = useState("");
@@ -560,14 +629,46 @@ export default function PackageManager() {
               </div>
 
               <div>
-                <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1 block">
-                  Cover Image URL *
+                <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1 flex items-center justify-between">
+                  <span>Cover Image *</span>
+                  <span className="text-[11px] font-medium text-[#0ea5e9]">Paste URL or Upload Local File</span>
                 </label>
-                <Input
-                  placeholder="https://images.unsplash.com/photo-..."
-                  value={editingPackage.coverImage || ""}
-                  onChange={(e) => setEditingPackage({ ...editingPackage, coverImage: e.target.value })}
-                />
+                <div className="flex gap-2 items-center">
+                  <Input
+                    placeholder="https://images.unsplash.com/... or /uploads/..."
+                    value={editingPackage.coverImage || ""}
+                    onChange={(e) => setEditingPackage({ ...editingPackage, coverImage: e.target.value })}
+                    className="flex-1"
+                  />
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 bg-[#0ea5e9] hover:bg-[#0284c7] text-white px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 shadow-sm">
+                    <Upload size={14} />
+                    {uploadingCover ? "Uploading..." : "Upload from Device"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleCoverUpload}
+                      disabled={uploadingCover}
+                    />
+                  </label>
+                </div>
+                {/* Live Preview Thumbnail */}
+                {editingPackage.coverImage && (
+                  <div className="mt-2.5 flex items-center gap-3 bg-[#f8fafc] p-2 rounded-xl border border-[#e2e8f0]">
+                    <div className="relative w-24 h-16 rounded-lg overflow-hidden border border-[#e2e8f0] bg-slate-900 shrink-0">
+                      <Image
+                        src={editingPackage.coverImage}
+                        alt="Cover Preview"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="text-[11px] text-[#64748b] truncate">
+                      <span className="font-semibold text-[#0a1628] block">Current Cover Image</span>
+                      <span className="truncate block font-mono text-[10px]">{editingPackage.coverImage}</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -770,16 +871,27 @@ export default function PackageManager() {
                   ))}
                 </div>
 
-                <div className="flex gap-2 max-w-lg pt-2">
+                <div className="flex flex-wrap gap-2 max-w-xl pt-2 items-center">
                   <Input
-                    placeholder="Paste Unsplash or CDN Image URL..."
+                    placeholder="Paste Image URL..."
                     value={newGalleryUrl}
                     onChange={(e) => setNewGalleryUrl(e.target.value)}
-                    className="text-xs"
+                    className="text-xs flex-1 min-w-[200px]"
                   />
                   <Button type="button" size="sm" onClick={handleAddGalleryImage} className="bg-[#0a1628] text-white shrink-0">
-                    Add Photo
+                    Add URL
                   </Button>
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 bg-[#0ea5e9] hover:bg-[#0284c7] text-white px-3 py-2 rounded-xl text-xs font-bold transition-all shrink-0 shadow-sm">
+                    <Upload size={14} />
+                    {uploadingGallery ? "Uploading..." : "Upload Local Photo"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleGalleryUpload}
+                      disabled={uploadingGallery}
+                    />
+                  </label>
                 </div>
               </div>
             </div>

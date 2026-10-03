@@ -16,6 +16,7 @@ import {
   RefreshCw,
   Sparkles,
   Flame,
+  Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -99,6 +100,36 @@ export default function DepartureManager() {
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editingDeparture, setEditingDeparture] = useState<Partial<DepartureRecord> | null>(null);
+  const [uploading, setUploading] = useState(false);
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !editingDeparture) return;
+
+    setUploading(true);
+    try {
+      const data = new FormData();
+      data.append("file", file);
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: data,
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json.url) {
+          setEditingDeparture((prev) => (prev ? { ...prev, image: json.url } : null));
+        }
+      } else {
+        alert("Image upload failed. Please try again.");
+      }
+    } catch (err) {
+      alert("Error uploading image from local device.");
+    } finally {
+      setUploading(false);
+    }
+  };
 
   const fetchDepartures = async () => {
     setLoading(true);
@@ -325,14 +356,46 @@ export default function DepartureManager() {
             </div>
 
             <div className="sm:col-span-2">
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1 block">
-                Cover Photo Image URL *
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1 flex items-center justify-between">
+                <span>Cover Photo Image *</span>
+                <span className="text-[11px] font-medium text-[#0ea5e9]">Paste URL or Upload Local File</span>
               </label>
-              <Input
-                placeholder="https://images.unsplash.com/photo-..."
-                value={editingDeparture.image || ""}
-                onChange={(e) => setEditingDeparture({ ...editingDeparture, image: e.target.value })}
-              />
+              <div className="flex gap-2 items-center">
+                <Input
+                  placeholder="https://images.unsplash.com/... or /uploads/..."
+                  value={editingDeparture.image || ""}
+                  onChange={(e) => setEditingDeparture({ ...editingDeparture, image: e.target.value })}
+                  className="flex-1"
+                />
+                <label className="cursor-pointer inline-flex items-center gap-1.5 bg-[#0ea5e9] hover:bg-[#0284c7] text-white px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 shadow-sm">
+                  <Upload size={14} />
+                  {uploading ? "Uploading..." : "Upload from Device"}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleImageUpload}
+                    disabled={uploading}
+                  />
+                </label>
+              </div>
+              {/* Live Preview Thumbnail */}
+              {editingDeparture.image && (
+                <div className="mt-2.5 flex items-center gap-3 bg-[#f8fafc] p-2 rounded-xl border border-[#e2e8f0]">
+                  <div className="relative w-24 h-16 rounded-lg overflow-hidden border border-[#e2e8f0] bg-slate-900 shrink-0">
+                    <Image
+                      src={editingDeparture.image}
+                      alt="Cover Preview"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="text-[11px] text-[#64748b] truncate">
+                    <span className="font-semibold text-[#0a1628] block">Current Cover Image</span>
+                    <span className="truncate block font-mono text-[10px]">{editingDeparture.image}</span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
