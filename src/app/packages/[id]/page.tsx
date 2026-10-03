@@ -25,6 +25,7 @@ import {
 import PackageInquirySidebar from "@/components/packages/PackageInquirySidebar";
 import PackageGallerySection from "@/components/packages/PackageGallerySection";
 import PackageSubNav from "@/components/packages/PackageSubNav";
+import PackagePdfButton from "@/components/packages/PackagePdfButton";
 
 export const PACKAGES_DICTIONARY: Record<string, any> = {
   "dubai-6d": {
@@ -979,23 +980,28 @@ export default async function PackageDetailPage({
             </div>
           </div>
 
-          <div className="flex flex-col items-start md:items-end">
-            <span className="text-xs text-[#94a3b8] uppercase font-semibold">Starting From</span>
-            <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-extrabold text-[#0a1628]">
-                NPR {pkg.price.toLocaleString("en-US")}
-              </span>
-              <span className="text-sm text-[#94a3b8] line-through">
-                NPR {pkg.originalPrice.toLocaleString("en-US")}
-              </span>
+          <div className="flex flex-col items-start md:items-end gap-2">
+            <div>
+              <span className="text-xs text-[#94a3b8] uppercase font-semibold block text-left md:text-right">Starting From</span>
+              <div className="flex items-baseline gap-2">
+                <span className="text-3xl font-extrabold text-[#0a1628]">
+                  NPR {pkg.price.toLocaleString("en-US")}
+                </span>
+                <span className="text-sm text-[#94a3b8] line-through">
+                  NPR {pkg.originalPrice.toLocaleString("en-US")}
+                </span>
+              </div>
+              <span className="text-xs text-[#64748b] block text-left md:text-right">per person (all taxes included)</span>
             </div>
-            <span className="text-xs text-[#64748b]">per person (all taxes included)</span>
+            <div className="mt-1">
+              <PackagePdfButton pkg={pkg} />
+            </div>
           </div>
         </div>
       </div>
 
       {/* Sticky Quick-Jump Sub-Navigation Bar */}
-      <PackageSubNav />
+      <PackageSubNav pkg={pkg} />
 
       <div className="container-custom">
         {/* Main Content Layout with Sticky Sidebar */}

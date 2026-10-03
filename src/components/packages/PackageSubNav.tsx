@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { FileText, Image as ImageIcon, Calendar, Clock, XCircle, Briefcase } from "lucide-react";
 
+import PackagePdfButton from "@/components/packages/PackagePdfButton";
+
 const NAV_ITEMS = [
   { id: "overview", label: "Overview", icon: FileText },
   { id: "gallery", label: "Gallery", icon: ImageIcon },
@@ -12,7 +14,11 @@ const NAV_ITEMS = [
   { id: "equipment", label: "Equipment & Essentials", icon: Briefcase },
 ];
 
-export default function PackageSubNav() {
+interface PackageSubNavProps {
+  pkg?: any;
+}
+
+export default function PackageSubNav({ pkg }: PackageSubNavProps) {
   const [activeId, setActiveId] = useState("overview");
 
   useEffect(() => {
@@ -46,7 +52,7 @@ export default function PackageSubNav() {
 
   return (
     <div className="sticky top-16 z-30 bg-white/95 backdrop-blur-md border-b border-[#e2e8f0] shadow-sm mb-8 py-2">
-      <div className="container-custom">
+      <div className="container-custom flex items-center justify-between gap-4">
         <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar py-1">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
@@ -67,6 +73,11 @@ export default function PackageSubNav() {
             );
           })}
         </div>
+        {pkg && (
+          <div className="hidden lg:block shrink-0">
+            <PackagePdfButton pkg={pkg} variant="outline" size="sm" />
+          </div>
+        )}
       </div>
     </div>
   );
