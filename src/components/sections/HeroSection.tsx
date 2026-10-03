@@ -100,7 +100,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[92vh] flex flex-col justify-between overflow-hidden bg-[#0a1628] select-none"
+      className="relative min-h-0 sm:min-h-[85vh] md:min-h-[90vh] flex flex-col justify-between overflow-hidden bg-[#0a1628] select-none py-2 sm:py-0"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -127,14 +127,14 @@ export default function HeroSection() {
         </AnimatePresence>
 
         {/* Ultra-vivid light dark overlay so background images shine clearly on mobile & desktop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/45 via-[#0a1628]/20 to-[#0a1628]/85 z-10" />
-        <div className="absolute inset-0 bg-black/15 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/55 via-[#0a1628]/30 to-[#0a1628]/90 z-10" />
+        <div className="absolute inset-0 bg-black/20 z-10" />
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-20 container-custom pt-4 sm:pt-10 md:pt-16 pb-4 sm:pb-8 flex flex-col items-center text-center">
+      <div className="relative z-20 container-custom pt-3 sm:pt-10 md:pt-14 pb-2 sm:pb-6 flex flex-col items-center text-center">
         {/* Interactive Service Selector Pills Header */}
-        <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 mb-3 sm:mb-6 max-w-4xl px-1 overflow-x-auto no-scrollbar w-full py-1">
+        <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-6 max-w-4xl px-1 overflow-x-auto no-scrollbar w-full py-1 scroll-smooth">
           {HERO_SLIDES.map((slide, index) => {
             const Icon = slide.icon;
             const isActive = index === currentIndex;
@@ -173,20 +173,20 @@ export default function HeroSection() {
             transition={{ duration: 0.4 }}
             className="flex flex-col items-center max-w-5xl"
           >
-            <h1 className="text-xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.2] mb-2 sm:mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] min-h-[1.2em]">
+            <h1 className="text-lg sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.25] sm:leading-[1.2] mb-1.5 sm:mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               {currentSlide.title}
             </h1>
 
-            <p className="text-white text-xs sm:text-base md:text-xl max-w-3xl mb-4 sm:mb-8 leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] px-2 line-clamp-2 sm:line-clamp-none">
+            <p className="text-white/90 text-xs sm:text-base md:text-xl max-w-3xl mb-3 sm:mb-8 leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] px-2 line-clamp-2 sm:line-clamp-none">
               {currentSlide.subtitle}
             </p>
 
             {/* Action Buttons */}
-            <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2 sm:gap-4 justify-center mb-4 sm:mb-8 w-full sm:w-auto px-1 sm:px-0">
+            <div className="flex flex-row items-center gap-2 sm:gap-4 justify-center mb-3 sm:mb-8 w-full sm:w-auto px-1 sm:px-0">
               <Button
                 size="xl"
                 asChild
-                className="bg-[#f97316] hover:bg-[#ea580c] text-white font-extrabold shadow-2xl shadow-orange-500/40 text-xs sm:text-base md:text-lg py-2.5 sm:py-4 px-3 sm:px-6 min-h-[40px] sm:min-h-[44px]"
+                className="bg-[#f97316] hover:bg-[#ea580c] text-white font-extrabold shadow-2xl shadow-orange-500/40 text-[11px] sm:text-base md:text-lg py-2 sm:py-4 px-3 sm:px-6 min-h-[38px] sm:min-h-[44px] shrink-0"
               >
                 <Link href={currentSlide.ctaLink} className="flex items-center justify-center gap-1">
                   <span>{currentSlide.ctaText}</span>
@@ -198,7 +198,7 @@ export default function HeroSection() {
                 size="xl"
                 variant="outline-white"
                 asChild
-                className="text-xs sm:text-base md:text-lg backdrop-blur-md bg-black/40 border-white/40 hover:bg-white/20 text-white py-2.5 sm:py-4 px-3 sm:px-6 min-h-[40px] sm:min-h-[44px]"
+                className="text-[11px] sm:text-base md:text-lg backdrop-blur-md bg-black/40 border-white/40 hover:bg-white/20 text-white py-2 sm:py-4 px-3 sm:px-6 min-h-[38px] sm:min-h-[44px] shrink-0"
               >
                 <Link href="/services/custom" className="flex items-center justify-center gap-1">
                   <Compass size={14} className="text-[#0ea5e9] shrink-0" />
@@ -208,6 +208,20 @@ export default function HeroSection() {
             </div>
           </motion.div>
         </AnimatePresence>
+
+        {/* Mobile Slide Dots Indicator */}
+        <div className="flex sm:hidden items-center justify-center gap-1.5 mb-2 z-30">
+          {HERO_SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                idx === currentIndex ? "w-6 bg-[#0ea5e9]" : "w-1.5 bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
 
         {/* Navigation Arrow Controls */}
         <div className="hidden sm:flex items-center justify-between absolute top-1/2 -translate-y-1/2 left-4 right-4 pointer-events-none z-30">
@@ -244,7 +258,7 @@ export default function HeroSection() {
       </div>
 
       {/* Floating Booking / Inquiry Search Card at the Bottom */}
-      <div className="relative z-20 container-custom pb-6 md:pb-10">
+      <div className="relative z-20 container-custom pb-4 sm:pb-6 md:pb-10">
         <div className="max-w-5xl mx-auto shadow-2xl transform transition-transform hover:-translate-y-1">
           <SearchBar
             activeTab={currentSlide.id}
