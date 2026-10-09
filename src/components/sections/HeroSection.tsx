@@ -31,7 +31,7 @@ const HERO_SLIDES = [
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=90",
     alt: "Airplane flying above clouds — Skywalk Holidays Flight Booking",
     ctaText: "Book Flights Now",
-    ctaLink: "/flights",
+    ctaLink: "/services/flights",
   },
   {
     id: "hotels",
@@ -44,7 +44,7 @@ const HERO_SLIDES = [
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=90",
     alt: "Luxury resort pool overview — Skywalk Holidays Hotel Booking",
     ctaText: "Explore Hotels",
-    ctaLink: "/hotels",
+    ctaLink: "/services/hotels",
   },
   {
     id: "packages",
@@ -57,7 +57,7 @@ const HERO_SLIDES = [
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=90",
     alt: "Tropical beach resort with palms — Skywalk Holidays Tour Packages",
     ctaText: "Browse Packages",
-    ctaLink: "/holiday-packages",
+    ctaLink: "/services/packages/international",
   },
   {
     id: "visa",
@@ -70,7 +70,7 @@ const HERO_SLIDES = [
     image: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=1920&q=90",
     alt: "Passports and travel documents — Skywalk Holidays Visa Assistance",
     ctaText: "Apply for Visa",
-    ctaLink: "/visa-services",
+    ctaLink: "/services/visa",
   },
 ];
 
