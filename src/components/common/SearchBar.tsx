@@ -149,7 +149,13 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
                 <Calendar size={12} className="text-[#0ea5e9] shrink-0" />
                 Departure Date
               </label>
-              <Input type="date" className="text-xs sm:text-sm" />
+              <Input
+                type="date"
+                min={new Date().toISOString().split("T")[0]}
+                className="text-xs sm:text-sm cursor-pointer"
+                onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+                onFocus={(e) => (e.target as HTMLInputElement).showPicker?.()}
+              />
             </div>
             <div>
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
@@ -182,7 +188,13 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
                 <Calendar size={12} className="text-[#0ea5e9] shrink-0" />
                 Check-in / Out
               </label>
-              <Input type="date" className="text-xs sm:text-sm" />
+              <Input
+                type="date"
+                min={new Date().toISOString().split("T")[0]}
+                className="text-xs sm:text-sm cursor-pointer"
+                onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+                onFocus={(e) => (e.target as HTMLInputElement).showPicker?.()}
+              />
             </div>
             <div>
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
@@ -225,7 +237,7 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
 
               {/* Autocomplete Suggestions Dropdown */}
               {showDropdown && (
-                <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-[#e2e8f0] p-2 z-50 max-h-72 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-[#e2e8f0] p-2 z-[9999] min-w-[280px] sm:min-w-[340px] max-h-80 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="px-3 py-1.5 border-b border-[#f1f5f9] flex items-center justify-between">
                     <span className="text-[11px] font-bold text-[#94a3b8] uppercase tracking-wider">
                       Available Destinations ({filteredSuggestions.length})
@@ -236,10 +248,12 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
                   {filteredSuggestions.length > 0 ? (
                     <div className="divide-y divide-[#f8fafc] mt-1">
                       {filteredSuggestions.map((dest) => (
-                        <button
+                        <div
                           key={dest.id}
-                          type="button"
-                          onClick={() => handleSelectDestination(dest)}
+                          onMouseDown={(e) => {
+                            e.preventDefault();
+                            handleSelectDestination(dest);
+                          }}
                           className="w-full text-left p-2.5 hover:bg-[#f0f9ff] rounded-xl transition-all duration-150 flex items-center justify-between group cursor-pointer"
                         >
                           <div>
@@ -256,7 +270,7 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
                           <span className="text-[10px] font-bold bg-[#e0f2fe] text-[#0ea5e9] px-2 py-0.5 rounded-full shrink-0 group-hover:bg-[#0ea5e9] group-hover:text-white transition-colors">
                             View Package
                           </span>
-                        </button>
+                        </div>
                       ))}
                     </div>
                   ) : (
@@ -271,9 +285,15 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
             <div>
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
                 <Calendar size={12} className="text-[#0ea5e9] shrink-0" />
-                Travel Month
+                Travel Month / Date
               </label>
-              <Input placeholder="e.g. October 2026" className="text-xs sm:text-sm" />
+              <Input
+                type="date"
+                min={new Date().toISOString().split("T")[0]}
+                className="text-xs sm:text-sm cursor-pointer"
+                onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+                onFocus={(e) => (e.target as HTMLInputElement).showPicker?.()}
+              />
             </div>
             <div>
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
@@ -325,7 +345,13 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
               <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
                 Travel Date
               </label>
-              <Input type="date" className="text-xs sm:text-sm" />
+              <Input
+                type="date"
+                min={new Date().toISOString().split("T")[0]}
+                className="text-xs sm:text-sm cursor-pointer"
+                onClick={(e) => (e.target as HTMLInputElement).showPicker?.()}
+                onFocus={(e) => (e.target as HTMLInputElement).showPicker?.()}
+              />
             </div>
             <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1">
               <Button type="submit" size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25 font-bold text-xs sm:text-sm whitespace-nowrap">

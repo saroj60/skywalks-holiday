@@ -100,7 +100,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-0 sm:min-h-[85vh] md:min-h-[90vh] flex flex-col justify-between overflow-hidden bg-[#0a1628] select-none py-2 sm:py-0"
+      className="relative min-h-0 sm:min-h-[85vh] md:min-h-[90vh] flex flex-col justify-between overflow-visible bg-[#0a1628] select-none py-2 sm:py-0"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
