@@ -57,42 +57,42 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
       </div>
 
       {/* Forms Container */}
-      <div className="px-2 pb-2">
+      <div className="px-1 sm:px-2 pb-2">
         {/* 1. Flights Form */}
         {currentTab === "flights" && (
-          <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
+          <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 items-end">
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <MapPin size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <MapPin size={12} className="text-[#0ea5e9] shrink-0" />
                 From
               </label>
-              <Input placeholder="Kathmandu (KTM)" defaultValue="Kathmandu (KTM)" />
+              <Input placeholder="Kathmandu (KTM)" defaultValue="Kathmandu (KTM)" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <MapPin size={12} className="text-[#f97316]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <MapPin size={12} className="text-[#f97316] shrink-0" />
                 To
               </label>
-              <Input placeholder="Destination City / Airport" />
+              <Input placeholder="Destination City / Airport" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Calendar size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Calendar size={12} className="text-[#0ea5e9] shrink-0" />
                 Departure Date
               </label>
-              <Input type="date" />
+              <Input type="date" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Users size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Users size={12} className="text-[#0ea5e9] shrink-0" />
                 Class / Passengers
               </label>
-              <Input placeholder="Economy, 1 Adult" />
+              <Input placeholder="Economy, 1 Adult" className="text-xs sm:text-sm" />
             </div>
-            <div>
-              <Button size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25">
+            <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1">
+              <Button size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25 font-bold text-xs sm:text-sm whitespace-nowrap">
                 Search Flights
-                <ArrowRight size={16} />
+                <ArrowRight size={16} className="shrink-0" />
               </Button>
             </div>
           </form>
@@ -100,32 +100,32 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
 
         {/* 2. Hotels Form */}
         {currentTab === "hotels" && (
-          <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
-            <div className="sm:col-span-2 lg:col-span-2">
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <MapPin size={12} className="text-[#0ea5e9]" />
+          <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 items-end">
+            <div className="sm:col-span-2 lg:col-span-2 xl:col-span-2">
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <MapPin size={12} className="text-[#0ea5e9] shrink-0" />
                 Destination / Hotel Name
               </label>
-              <Input placeholder="City, Hotel, or Landmark" />
+              <Input placeholder="City, Hotel, or Landmark" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Calendar size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Calendar size={12} className="text-[#0ea5e9] shrink-0" />
                 Check-in / Out
               </label>
-              <Input type="date" />
+              <Input type="date" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Users size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Users size={12} className="text-[#0ea5e9] shrink-0" />
                 Guests & Rooms
               </label>
-              <Input placeholder="2 Guests, 1 Room" />
+              <Input placeholder="2 Guests, 1 Room" className="text-xs sm:text-sm" />
             </div>
-            <div>
-              <Button size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25">
+            <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1">
+              <Button size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25 font-bold text-xs sm:text-sm whitespace-nowrap">
                 Search Hotels
-                <ArrowRight size={16} />
+                <ArrowRight size={16} className="shrink-0" />
               </Button>
             </div>
           </form>
@@ -133,38 +133,38 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
 
         {/* 3. Holiday Packages Form */}
         {currentTab === "packages" && (
-          <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
+          <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 items-end">
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Globe size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Globe size={12} className="text-[#0ea5e9] shrink-0" />
                 Destination
               </label>
-              <Input placeholder="e.g. Bali, Thailand, Europe" />
+              <Input placeholder="e.g. Bali, Thailand, Europe" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Calendar size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Calendar size={12} className="text-[#0ea5e9] shrink-0" />
                 Travel Month
               </label>
-              <Input placeholder="e.g. October 2026" />
+              <Input placeholder="e.g. October 2026" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Users size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Users size={12} className="text-[#0ea5e9] shrink-0" />
                 Travelers
               </label>
-              <Input placeholder="e.g. Family (4 Pax)" />
+              <Input placeholder="e.g. Family (4 Pax)" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
                 Budget (NPR)
               </label>
-              <Input placeholder="e.g. 50,000 - 1,00,000" />
+              <Input placeholder="e.g. 50,000 - 1,00,000" className="text-xs sm:text-sm" />
             </div>
-            <div>
-              <Button size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25">
+            <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1">
+              <Button size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25 font-bold text-xs sm:text-sm whitespace-nowrap">
                 Find Packages
-                <ArrowRight size={16} />
+                <ArrowRight size={16} className="shrink-0" />
               </Button>
             </div>
           </form>
@@ -172,38 +172,38 @@ export default function SearchBar({ activeTab: externalActiveTab, onTabChange }:
 
         {/* 4. Visa Assistance Form */}
         {currentTab === "visa" && (
-          <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
+          <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 items-end">
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Globe size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Globe size={12} className="text-[#0ea5e9] shrink-0" />
                 Destination Country
               </label>
-              <Input placeholder="e.g. UAE, Schengen, USA" />
+              <Input placeholder="e.g. UAE, Schengen, USA" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <FileCheck size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <FileCheck size={12} className="text-[#0ea5e9] shrink-0" />
                 Visa Type
               </label>
-              <Input placeholder="Tourist / Business / Student" />
+              <Input placeholder="Tourist / Business / Student" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                <Phone size={12} className="text-[#0ea5e9]" />
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <Phone size={12} className="text-[#0ea5e9] shrink-0" />
                 Phone / WhatsApp
               </label>
-              <Input placeholder="+977-98XXXXXXXX" />
+              <Input placeholder="+977-98XXXXXXXX" className="text-xs sm:text-sm" />
             </div>
             <div>
-              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+              <label className="text-xs font-bold text-[#0a1628] uppercase tracking-wider mb-1.5 flex items-center gap-1.5 whitespace-nowrap">
                 Travel Date
               </label>
-              <Input type="date" />
+              <Input type="date" className="text-xs sm:text-sm" />
             </div>
-            <div>
-              <Button size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25">
+            <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1">
+              <Button size="lg" className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white shadow-lg shadow-orange-500/25 font-bold text-xs sm:text-sm whitespace-nowrap">
                 Request Visa Info
-                <ArrowRight size={16} />
+                <ArrowRight size={16} className="shrink-0" />
               </Button>
             </div>
           </form>
