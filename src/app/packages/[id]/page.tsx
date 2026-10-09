@@ -1244,7 +1244,7 @@ export default async function PackageDetailPage({
           </div>
 
           {/* Right Column: Sticky Inquiry Sidebar */}
-          <div className="lg:col-span-1 sticky top-28 self-start z-20">
+          <div className="lg:col-span-1 sticky top-20 self-start z-20">
             <PackageInquirySidebar
               packageTitle={pkg.title}
               packagePrice={pkg.price}
