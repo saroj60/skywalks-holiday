@@ -58,10 +58,10 @@ const DEPARTMENT_PRESETS = [
   {
     role: "MASTER_ADMIN" as UserRole,
     name: "Master Administrator",
-    badge: "Master Admin (2FA)",
-    desc: "Full management & 2FA protected",
-    email: "admin@skywalkholidays.com",
-    pass: "admin123",
+    badge: "Master Admin",
+    desc: "Full management & control",
+    email: "skywalktoursandtravels32@gmail.com",
+    pass: "skywalktoursandtravels@@2026",
   },
   {
     role: "TOURS_ADMIN" as UserRole,
@@ -125,8 +125,8 @@ export default function AdminDashboard() {
     return null;
   });
 
-  const [loginEmail, setLoginEmail] = useState("admin@skywalkholidays.com");
-  const [loginPassword, setLoginPassword] = useState("admin123");
+  const [loginEmail, setLoginEmail] = useState("skywalktoursandtravels32@gmail.com");
+  const [loginPassword, setLoginPassword] = useState("skywalktoursandtravels@@2026");
   const [loginError, setLoginError] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
 
@@ -409,7 +409,7 @@ export default function AdminDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
           {/* Brand Identity */}
           <div className="flex items-center gap-2.5">
-            <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-xs border border-slate-200/90 bg-white shrink-0 p-0.5">
+            <div className="relative w-9 h-9 rounded-full overflow-hidden shadow-xs border border-slate-200/90 bg-white shrink-0 p-0.5">
               <Image
                 src="/images/logo.png"
                 alt="Skywalk Holidays Logo"
@@ -486,9 +486,9 @@ export default function AdminDashboard() {
                     {currentUser?.badge || "Staff"}
                   </span>
                   {currentUser?.role === "MASTER_ADMIN" && (
-                    <span className="px-1.5 py-0.5 rounded text-[9px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-0.5">
+                    <span className="px-1.5 py-0.5 rounded text-[9px] font-semibold bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-0.5">
                       <ShieldCheck size={10} />
-                      2FA Active
+                      Super Admin
                     </span>
                   )}
                 </div>

@@ -31,10 +31,10 @@ const DEPARTMENT_PRESETS = [
   {
     role: "MASTER_ADMIN" as UserRole,
     name: "Master Administrator",
-    badge: "Master Admin (2FA)",
-    desc: "Full management & 2FA protected",
-    email: "admin@skywalkholidays.com",
-    pass: "admin123",
+    badge: "Master Admin",
+    desc: "Full management & control",
+    email: "skywalktoursandtravels32@gmail.com",
+    pass: "skywalktoursandtravels@@2026",
   },
   {
     role: "TOURS_ADMIN" as UserRole,
@@ -80,8 +80,8 @@ const DEPARTMENT_PRESETS = [
 
 export default function AdminLoginForm() {
   const router = useRouter();
-  const [loginEmail, setLoginEmail] = useState("admin@skywalkholidays.com");
-  const [loginPassword, setLoginPassword] = useState("admin123");
+  const [loginEmail, setLoginEmail] = useState("skywalktoursandtravels32@gmail.com");
+  const [loginPassword, setLoginPassword] = useState("skywalktoursandtravels@@2026");
   const [loginError, setLoginError] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
 
@@ -255,7 +255,7 @@ export default function AdminLoginForm() {
         <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
           <div className="flex justify-center">
             <div className="relative">
-              <div className="relative w-16 h-16 rounded-2xl overflow-hidden shadow-xl border border-white/20 bg-white p-1">
+              <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-xl border border-white/20 bg-white p-1">
                 <Image
                   src="/images/logo.png"
                   alt="Skywalk Holidays Logo"
@@ -400,7 +400,7 @@ export default function AdminLoginForm() {
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center relative z-10">
         {/* Brand Header */}
         <div className="flex justify-center">
-          <div className="relative w-16 h-16 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-white p-1">
+          <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-2xl border-2 border-white/20 bg-white p-1">
             <Image
               src="/images/logo.png"
               alt="Skywalk Holidays Logo"

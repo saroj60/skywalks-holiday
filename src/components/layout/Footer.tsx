@@ -77,7 +77,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-5 group">
-              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden shadow-md border border-white/20 group-hover:scale-105 group-hover:border-[#0ea5e9] transition-all shrink-0 bg-white p-0.5">
+              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-md border border-white/20 group-hover:scale-105 group-hover:border-[#0ea5e9] transition-all shrink-0 bg-white p-1">
                 <Image
                   src="/images/logo.png"
                   alt="SkyWalk Tours & Travels Logo"
@@ -123,13 +123,15 @@ export default function Footer() {
             <div className="flex gap-3 mt-6">
               {[
                 { icon: FacebookIcon, href: "https://www.facebook.com/p/SkyWalk-Holidays-61569789310239/", label: "Facebook" },
-                { icon: InstagramIcon, href: "#", label: "Instagram" },
+                { icon: InstagramIcon, href: "https://www.instagram.com/sky.walkholidays/", label: "Instagram" },
                 { icon: YoutubeIcon, href: "#", label: "YouTube" },
                 { icon: XIcon, href: "#", label: "X (Twitter)" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={label}
                   className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-[#94a3b8] hover:bg-[#0ea5e9] hover:text-white transition-all"
                 >

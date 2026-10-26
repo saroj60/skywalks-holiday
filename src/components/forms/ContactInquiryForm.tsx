@@ -58,6 +58,11 @@ export default function ContactInquiryForm() {
 
       setWhatsappUrl(waLink);
       setSubmitted(true);
+
+      // Automatically launch WhatsApp with pre-filled inquiry details
+      if (typeof window !== "undefined") {
+        window.open(waLink, "_blank");
+      }
     } catch (err: any) {
       setErrorMsg(err.message || "An error occurred while sending your message.");
     } finally {

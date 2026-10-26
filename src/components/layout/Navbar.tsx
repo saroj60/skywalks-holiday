@@ -58,7 +58,7 @@ export default function Navbar() {
         <div className="container-custom flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group py-1">
-            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden shadow-sm border border-slate-200/90 group-hover:scale-105 group-hover:border-[#0ea5e9] transition-all shrink-0 bg-white p-0.5">
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-sm border border-slate-200/90 group-hover:scale-105 group-hover:border-[#0ea5e9] transition-all shrink-0 bg-white p-1">
               <Image
                 src="/images/logo.png"
                 alt="SkyWalk Tours & Travels Logo"

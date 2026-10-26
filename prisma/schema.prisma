@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -62,7 +62,7 @@ model FlightInquiry {
   whatsappNumber String
   status         InquiryStatus @default(NEW)
   assignedStaff  String?       @default("Unassigned")
-  notes          String?
+  notes          String?       @db.Text
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
 }
@@ -78,7 +78,7 @@ model HotelInquiry {
   whatsappNumber String
   status         InquiryStatus @default(NEW)
   assignedStaff  String?       @default("Unassigned")
-  notes          String?
+  notes          String?       @db.Text
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
 }
@@ -92,10 +92,10 @@ model HolidayPackageInquiry {
   travelers           String        @default("2 Travelers")
   customerName        String
   whatsappNumber      String
-  specialRequirements String?
+  specialRequirements String?       @db.Text
   status              InquiryStatus @default(NEW)
   assignedStaff       String?       @default("Unassigned")
-  notes               String?
+  notes               String?       @db.Text
   createdAt           DateTime      @default(now())
   updatedAt           DateTime      @updatedAt
 }
@@ -111,7 +111,7 @@ model VisaApplication {
   email              String
   status             InquiryStatus @default(NEW)
   assignedStaff      String?       @default("Unassigned")
-  notes              String?
+  notes              String?       @db.Text
   createdAt          DateTime      @default(now())
   updatedAt          DateTime      @updatedAt
 }
@@ -126,7 +126,7 @@ model BusInquiry {
   phone           String
   status          InquiryStatus @default(NEW)
   assignedStaff   String?       @default("Unassigned")
-  notes           String?
+  notes           String?       @db.Text
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
 }
@@ -141,12 +141,12 @@ model HolidayPackage {
   originalPrice Int
   rating        Float         @default(4.8)
   reviews       Int           @default(12)
-  inclusions    String        // JSON array as string
-  exclusions    String?       // JSON array as string
-  itinerary     String?       // JSON array as string
-  hotelInfo     String?
+  inclusions    String        @db.Text
+  exclusions    String?       @db.Text
+  itinerary     String?       @db.Text
+  hotelInfo     String?       @db.Text
   coverImage    String
-  gallery       String        // JSON array as string
+  gallery       String        @db.Text
   category      String        @default("International")
   badge         String?       @default("Popular")
   featured      Boolean       @default(false)
@@ -180,10 +180,10 @@ model ContactMessage {
   phone             String
   serviceInterested String
   destination       String?
-  message           String
+  message           String        @db.Text
   status            InquiryStatus @default(NEW)
   assignedStaff     String?       @default("Unassigned")
-  notes             String?
+  notes             String?       @db.Text
   createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
 }

@@ -62,7 +62,7 @@ const CONTACT_CHANNELS = [
     icon: MapPin,
     title: "Visit Office",
     value: "Pepsicola",
-    subtitle: "Kathmandu, Nepal",
+    subtitle: COMPANY.address,
     desc: "Open Mon-Sat 10:00 AM - 6:00 PM",
     href: "https://maps.app.goo.gl/cSd8z1m3BnbegeSY6",
     color: "bg-[#fff7ed] text-[#f97316]",
@@ -72,7 +72,7 @@ const CONTACT_CHANNELS = [
     icon: Mail,
     title: "Official Email",
     value: "Send Email",
-    subtitle: "skywalktoursandtravels32@...",
+    subtitle: COMPANY.email,
     desc: "Response within 2 hours",
     href: `mailto:${COMPANY.email}`,
     color: "bg-[#faf5ff] text-purple-600",
@@ -106,7 +106,7 @@ const XIcon = () => (
 
 const SOCIAL_LINKS = [
   { icon: FacebookIcon, href: "https://www.facebook.com/p/SkyWalk-Holidays-61569789310239/", label: "Facebook" },
-  { icon: InstagramIcon, href: "#", label: "Instagram" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/sky.walkholidays/", label: "Instagram" },
   { icon: YoutubeIcon, href: "#", label: "YouTube" },
   { icon: XIcon, href: "#", label: "X (Twitter)" },
 ];
@@ -194,7 +194,7 @@ export default function ContactPage() {
                   <div className="text-lg sm:text-xl md:text-2xl font-black text-[#0a1628] group-hover:text-[#0ea5e9] transition-colors mb-0.5 tracking-tight">
                     {item.title}
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-[#334155] mb-1 truncate max-w-full">
+                  <div className="text-xs sm:text-sm font-bold text-[#334155] mb-1 line-clamp-2 max-w-full">
                     {item.subtitle}
                   </div>
                   <div className="text-[11px] text-[#94a3b8] line-clamp-1">

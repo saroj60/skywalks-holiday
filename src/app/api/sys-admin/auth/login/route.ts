@@ -12,38 +12,44 @@ import { logger } from "@/lib/logger";
 
 const DEFAULT_SERVICE_ACCOUNTS = [
   {
+    email: "skywalktoursandtravels32@gmail.com",
+    password: "skywalktoursandtravels@@2026",
+    name: "Master Administrator",
+    role: "MASTER_ADMIN" as UserRole,
+  },
+  {
     email: "admin@skywalkholidays.com",
-    password: "admin123",
+    password: "skywalktoursandtravels@@2026",
     name: "Master Administrator",
     role: "MASTER_ADMIN" as UserRole,
   },
   {
     email: "tours@skywalkholidays.com",
-    password: "tours123",
+    password: "skywalktoursandtravels@@2026",
     name: "Tours & Holiday Packages Desk",
     role: "TOURS_ADMIN" as UserRole,
   },
   {
     email: "flights@skywalkholidays.com",
-    password: "flights123",
+    password: "skywalktoursandtravels@@2026",
     name: "Ticketing & Flights Desk",
     role: "FLIGHTS_ADMIN" as UserRole,
   },
   {
     email: "hotels@skywalkholidays.com",
-    password: "hotels123",
+    password: "skywalktoursandtravels@@2026",
     name: "Hotels & Stays Desk",
     role: "HOTELS_ADMIN" as UserRole,
   },
   {
     email: "visa@skywalkholidays.com",
-    password: "visa123",
+    password: "skywalktoursandtravels@@2026",
     name: "Visa Assistance Specialist",
     role: "VISA_ADMIN" as UserRole,
   },
   {
     email: "media@skywalkholidays.com",
-    password: "media123",
+    password: "skywalktoursandtravels@@2026",
     name: "Media & Content Desk",
     role: "MEDIA_ADMIN" as UserRole,
   },
@@ -67,32 +73,7 @@ export async function POST(req: NextRequest) {
     if (serviceAccount) {
       const roleConfig = ROLE_CONFIGS[serviceAccount.role];
 
-      // Enforce 2FA verification for Master Administrator
-      if (serviceAccount.role === "MASTER_ADMIN") {
-        const otpCode = generate6DigitCode();
-        const tempToken = sign2FATempToken({
-          userId: `usr-${serviceAccount.role.toLowerCase()}`,
-          email: serviceAccount.email,
-          name: serviceAccount.name,
-          role: serviceAccount.role,
-          pending2FA: true,
-          otpCode,
-        });
-
-        logger.info("2FA Code Generated for Master Admin", { email, otpCode });
-
-        return NextResponse.json({
-          success: true,
-          requires2FA: true,
-          tempToken,
-          email: serviceAccount.email,
-          name: serviceAccount.name,
-          message: "Two-Factor Authentication (2FA) is required for Master Admin.",
-          hintCode: otpCode,
-        });
-      }
-
-      // Other department accounts log in directly
+      // Sign token directly without 2FA
       const token = signToken({
         userId: `usr-${serviceAccount.role.toLowerCase()}`,
         email: serviceAccount.email,

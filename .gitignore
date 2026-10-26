@@ -23,6 +23,11 @@
 # misc
 .DS_Store
 *.pem
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+public/namecheap-order-*.pdf
 
 # debug
 npm-debug.log*

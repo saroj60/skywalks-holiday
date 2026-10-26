@@ -40,7 +40,7 @@ const INITIAL_STAFF_ACCOUNTS: StaffAccount[] = [
   {
     id: "usr-master",
     name: "Master Administrator",
-    email: "admin@skywalkholidays.com",
+    email: "skywalktoursandtravels32@gmail.com",
     role: "MASTER_ADMIN",
     department: "Executive Management",
     lastLogin: "Just now",
@@ -350,9 +350,9 @@ export default function StaffManager() {
                           {config.badge}
                         </span>
                         {isMaster && (
-                          <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
                             <ShieldCheck size={10} />
-                            2FA Enforced
+                            Master Account
                           </span>
                         )}
                       </div>

@@ -21,6 +21,7 @@ export const COMPANY = {
   address: "Pepsicola, Kathmandu, Nepal, 44600",
   mapsUrl: "https://maps.app.goo.gl/cSd8z1m3BnbegeSY6",
   facebook: "https://www.facebook.com/p/SkyWalk-Holidays-61569789310239/",
+  instagram: "https://www.instagram.com/sky.walkholidays/",
   hours: "Always open",
   recommendation: "100% recommend (8 reviews)",
   founded: 2024,
