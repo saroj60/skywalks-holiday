@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     "best travel agency for flight booking in nepal",
   ],
   alternates: {
-    canonical: "https://skywalkholidays.com/services/flights",
+    canonical: "https://skywalkholiday.com/services/flights",
   },
   openGraph: {
     title: "Flight Ticket Booking in Nepal | Guaranteed Best Agency Fares — Skywalk Holidays",
     description:
       "Compare 40+ airlines and book cheap international & domestic flight tickets with Skywalk Holidays Kathmandu. Instant quotes and 24/7 flight desk support.",
-    url: "https://skywalkholidays.com/services/flights",
+    url: "https://skywalkholiday.com/services/flights",
     siteName: "Skywalk Holidays Nepal",
     images: [
       {
-        url: "https://skywalkholidays.com/images/flights-hero-banner.png",
+        url: "https://skywalkholiday.com/images/flights-hero-banner.png",
         width: 1280,
         height: 500,
         alt: "Flight Ticket Booking Assistance — Skywalk Holidays Nepal",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Flight Ticket Booking in Nepal — Skywalk Holidays",
     description: "Compare 40+ airlines and book cheap international & domestic flight tickets from Kathmandu.",
-    images: ["https://skywalkholidays.com/images/flights-hero-banner.png"],
+    images: ["https://skywalkholiday.com/images/flights-hero-banner.png"],
   },
 };
 

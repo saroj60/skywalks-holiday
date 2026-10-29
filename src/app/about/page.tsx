@@ -40,16 +40,16 @@ export const metadata: Metadata = {
     "pepsicola travel agency kathmandu",
   ],
   alternates: {
-    canonical: "https://skywalkholidays.com/about",
+    canonical: "https://skywalkholiday.com/about",
   },
   openGraph: {
     title: "About Skywalk Holidays | Premier Tour & Travel Company in Nepal",
     description: "Learn about Nepal's trusted travel agency for international holiday packages, flight bookings, and certified visa services.",
-    url: "https://skywalkholidays.com/about",
+    url: "https://skywalkholiday.com/about",
     siteName: "Skywalk Holidays Nepal",
     images: [
       {
-        url: "https://skywalkholidays.com/images/about-hero-banner.png",
+        url: "https://skywalkholiday.com/images/about-hero-banner.png",
         width: 1280,
         height: 600,
         alt: "About Skywalk Holidays — Nepal's Premier Travel Agency",

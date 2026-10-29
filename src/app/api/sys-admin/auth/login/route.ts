@@ -14,42 +14,55 @@ const DEFAULT_SERVICE_ACCOUNTS = [
   {
     email: "skywalktoursandtravels32@gmail.com",
     password: "skywalktoursandtravels@@2026",
+    altPassword: "admin123",
     name: "Master Administrator",
     role: "MASTER_ADMIN" as UserRole,
   },
   {
-    email: "admin@skywalkholidays.com",
+    email: "admin@skywalkholiday.com",
+    altEmail: "admin@skywalkholidays.com",
     password: "skywalktoursandtravels@@2026",
+    altPassword: "admin123",
     name: "Master Administrator",
     role: "MASTER_ADMIN" as UserRole,
   },
   {
-    email: "tours@skywalkholidays.com",
+    email: "tours@skywalkholiday.com",
+    altEmail: "tours@skywalkholidays.com",
     password: "skywalktoursandtravels@@2026",
+    altPassword: "tours123",
     name: "Tours & Holiday Packages Desk",
     role: "TOURS_ADMIN" as UserRole,
   },
   {
-    email: "flights@skywalkholidays.com",
+    email: "flights@skywalkholiday.com",
+    altEmail: "flights@skywalkholidays.com",
     password: "skywalktoursandtravels@@2026",
+    altPassword: "flights123",
     name: "Ticketing & Flights Desk",
     role: "FLIGHTS_ADMIN" as UserRole,
   },
   {
-    email: "hotels@skywalkholidays.com",
+    email: "hotels@skywalkholiday.com",
+    altEmail: "hotels@skywalkholidays.com",
     password: "skywalktoursandtravels@@2026",
+    altPassword: "hotels123",
     name: "Hotels & Stays Desk",
     role: "HOTELS_ADMIN" as UserRole,
   },
   {
-    email: "visa@skywalkholidays.com",
+    email: "visa@skywalkholiday.com",
+    altEmail: "visa@skywalkholidays.com",
     password: "skywalktoursandtravels@@2026",
+    altPassword: "visa123",
     name: "Visa Assistance Specialist",
     role: "VISA_ADMIN" as UserRole,
   },
   {
-    email: "media@skywalkholidays.com",
+    email: "media@skywalkholiday.com",
+    altEmail: "media@skywalkholidays.com",
     password: "skywalktoursandtravels@@2026",
+    altPassword: "media123",
     name: "Media & Content Desk",
     role: "MEDIA_ADMIN" as UserRole,
   },
@@ -67,7 +80,9 @@ export async function POST(req: NextRequest) {
 
     // 1. Check predefined department service accounts
     const serviceAccount = DEFAULT_SERVICE_ACCOUNTS.find(
-      (acc) => acc.email.toLowerCase() === email && acc.password === password
+      (acc) =>
+        (acc.email.toLowerCase() === email || (acc.altEmail && acc.altEmail.toLowerCase() === email)) &&
+        (acc.password === password || acc.altPassword === password)
     );
 
     if (serviceAccount) {

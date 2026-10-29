@@ -68,7 +68,7 @@ const DEPARTMENT_PRESETS = [
     name: "Tours Desk Officer",
     badge: "Tours Desk",
     desc: "Packages, destinations & tour leads",
-    email: "tours@skywalkholidays.com",
+    email: "tours@skywalkholiday.com",
     pass: "tours123",
   },
   {
@@ -76,7 +76,7 @@ const DEPARTMENT_PRESETS = [
     name: "Ticketing Desk Officer",
     badge: "Ticketing Desk",
     desc: "Flight deals & ticketing inquiries",
-    email: "flights@skywalkholidays.com",
+    email: "flights@skywalkholiday.com",
     pass: "flights123",
   },
   {
@@ -84,7 +84,7 @@ const DEPARTMENT_PRESETS = [
     name: "Hotels Operations Desk",
     badge: "Hotels Desk",
     desc: "Hotel listings & reservation leads",
-    email: "hotels@skywalkholidays.com",
+    email: "hotels@skywalkholiday.com",
     pass: "hotels123",
   },
   {
@@ -92,7 +92,7 @@ const DEPARTMENT_PRESETS = [
     name: "Visa Specialist",
     badge: "Visa Desk",
     desc: "Visa applications & filing reviews",
-    email: "visa@skywalkholidays.com",
+    email: "visa@skywalkholiday.com",
     pass: "visa123",
   },
   {
@@ -100,7 +100,7 @@ const DEPARTMENT_PRESETS = [
     name: "Media & Content Officer",
     badge: "Media Desk",
     desc: "Photo assets & marketing gallery",
-    email: "media@skywalkholidays.com",
+    email: "media@skywalkholiday.com",
     pass: "media123",
   },
 ];

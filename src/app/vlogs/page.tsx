@@ -9,7 +9,7 @@ export const metadata = {
     title: "Travel Vlogs & Video Guides | Skywalk Holidays",
     description:
       "Watch travel vlogs, destination walkthroughs, customer review videos, and expert travel tips for your next international holiday from Nepal.",
-    url: "https://skywalkholidays.com/vlogs",
+    url: "https://skywalkholiday.com/vlogs",
     siteName: "Skywalk Holidays",
     images: [
       {

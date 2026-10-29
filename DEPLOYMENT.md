@@ -29,7 +29,7 @@ This document provides step-by-step instructions for deploying the **Skywalk Hol
    DATABASE_URL="postgresql://user:password@your-postgres-host:5432/skywalkdb?sslmode=require"
    NEXT_PUBLIC_WHATSAPP_NUMBER="9779851000000"
    JWT_SECRET="your_production_jwt_secret_key"
-   NEXT_PUBLIC_APP_URL="https://skywalkholidays.com"
+   NEXT_PUBLIC_APP_URL="https://skywalkholiday.com"
    NODE_ENV="production"
    ```
 5. Click **Deploy**. Vercel will automatically build the Next.js App Router project and deploy global edge functions.
@@ -44,7 +44,7 @@ This document provides step-by-step instructions for deploying the **Skywalk Hol
    ```bash
    npx prisma db push
    ```
-4. Seed the initial admin account by running a POST request to `/api/admin/auth/login` with default credentials (`admin@skywalkholidays.com` / `admin123`) or customizing your admin seed.
+4. Seed the initial admin account by running a POST request to `/api/admin/auth/login` with default credentials (`admin@skywalkholiday.com` / `admin123`) or customizing your admin seed.
 
 ---
 

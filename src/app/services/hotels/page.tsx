@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     "best travel agency hotel booking nepal",
   ],
   alternates: {
-    canonical: "https://skywalkholidays.com/services/hotels",
+    canonical: "https://skywalkholiday.com/services/hotels",
   },
   openGraph: {
     title: "Hotel Booking in Nepal & Worldwide — Skywalk Holidays",
     description:
       "Save up to 30% on verified hotels and luxury private pool villas worldwide with Skywalk Holidays Kathmandu.",
-    url: "https://skywalkholidays.com/services/hotels",
+    url: "https://skywalkholiday.com/services/hotels",
     siteName: "Skywalk Holidays Nepal",
     type: "website",
   },

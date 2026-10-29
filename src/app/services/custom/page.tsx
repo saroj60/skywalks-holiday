@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "customized bali honeymoon tour nepal",
   ],
   alternates: {
-    canonical: "https://skywalkholidays.com/services/custom",
+    canonical: "https://skywalkholiday.com/services/custom",
   },
 };
 

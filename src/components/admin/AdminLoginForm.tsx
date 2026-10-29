@@ -34,54 +34,48 @@ const DEPARTMENT_PRESETS = [
     badge: "Master Admin",
     desc: "Full management & control",
     email: "skywalktoursandtravels32@gmail.com",
-    pass: "skywalktoursandtravels@@2026",
   },
   {
     role: "TOURS_ADMIN" as UserRole,
     name: "Tours Desk Officer",
     badge: "Tours Desk",
     desc: "Packages, destinations & departures",
-    email: "tours@skywalkholidays.com",
-    pass: "tours123",
+    email: "tours@skywalkholiday.com",
   },
   {
     role: "FLIGHTS_ADMIN" as UserRole,
     name: "Ticketing Desk Officer",
     badge: "Ticketing Desk",
     desc: "Flight deals & ticketing leads",
-    email: "flights@skywalkholidays.com",
-    pass: "flights123",
+    email: "flights@skywalkholiday.com",
   },
   {
     role: "HOTELS_ADMIN" as UserRole,
     name: "Hotels Operations Desk",
     badge: "Hotels Desk",
     desc: "Hotel listings & reservation leads",
-    email: "hotels@skywalkholidays.com",
-    pass: "hotels123",
+    email: "hotels@skywalkholiday.com",
   },
   {
     role: "VISA_ADMIN" as UserRole,
     name: "Visa Specialist",
     badge: "Visa Desk",
     desc: "Visa applications & filing reviews",
-    email: "visa@skywalkholidays.com",
-    pass: "visa123",
+    email: "visa@skywalkholiday.com",
   },
   {
     role: "MEDIA_ADMIN" as UserRole,
     name: "Media & Content Officer",
     badge: "Media Desk",
     desc: "Photo assets & marketing gallery",
-    email: "media@skywalkholidays.com",
-    pass: "media123",
+    email: "media@skywalkholiday.com",
   },
 ];
 
 export default function AdminLoginForm() {
   const router = useRouter();
-  const [loginEmail, setLoginEmail] = useState("skywalktoursandtravels32@gmail.com");
-  const [loginPassword, setLoginPassword] = useState("skywalktoursandtravels@@2026");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
 
@@ -427,7 +421,7 @@ export default function AdminLoginForm() {
             </div>
           )}
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-4" autoComplete="off">
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                 Work Email Address
@@ -435,9 +429,10 @@ export default function AdminLoginForm() {
               <Input
                 type="email"
                 required
+                autoComplete="off"
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
-                placeholder="name@skywalkholidays.com"
+                placeholder="name@skywalkholiday.com"
                 className="bg-white border-slate-300 text-sm h-11 focus:ring-2 focus:ring-[#0ea5e9] focus:border-[#0ea5e9] rounded-xl"
               />
             </div>
@@ -451,9 +446,10 @@ export default function AdminLoginForm() {
               <Input
                 type="password"
                 required
+                autoComplete="new-password"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
-                placeholder="••••••••"
+                placeholder="Enter password manually"
                 className="bg-white border-slate-300 text-sm h-11 focus:ring-2 focus:ring-[#0ea5e9] focus:border-[#0ea5e9] rounded-xl"
               />
             </div>
@@ -486,7 +482,7 @@ export default function AdminLoginForm() {
                     type="button"
                     onClick={() => {
                       setLoginEmail(p.email);
-                      setLoginPassword(p.pass);
+                      setLoginPassword("");
                       setLoginError("");
                       setIs2FAStep(false);
                     }}

@@ -34,17 +34,17 @@ export const metadata: Metadata = {
     "skywalk holidays",
   ],
   alternates: {
-    canonical: "https://skywalkholidays.com",
+    canonical: "https://skywalkholiday.com",
   },
   openGraph: {
     title: "Skywalk Holidays | #1 Tour and Travel Company in Nepal",
     description:
       "Nepal's trusted travel partner for Bangkok Thailand, Bali Indonesia, China & Vietnam holiday tour packages, cheap flight tickets, and visa assistance from Kathmandu.",
-    url: "https://skywalkholidays.com",
+    url: "https://skywalkholiday.com",
     siteName: "Skywalk Holidays Nepal",
     images: [
       {
-        url: "https://skywalkholidays.com/uploads/Explore%20Holiday%20Packages.png",
+        url: "https://skywalkholiday.com/uploads/Explore%20Holiday%20Packages.png",
         width: 1200,
         height: 630,
         alt: "Skywalk Holidays — #1 Tour and Travel Company in Nepal",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "Skywalk Holidays | #1 Tour and Travel Company in Nepal",
     description:
       "Book Thailand, Bali Indonesia, China & Vietnam holiday packages, cheap flight tickets, and visa assistance with Skywalk Holidays Kathmandu.",
-    images: ["https://skywalkholidays.com/uploads/Explore%20Holiday%20Packages.png"],
+    images: ["https://skywalkholiday.com/uploads/Explore%20Holiday%20Packages.png"],
   },
 };
 

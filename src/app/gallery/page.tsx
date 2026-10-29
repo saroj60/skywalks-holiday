@@ -9,7 +9,7 @@ export const metadata = {
     title: "Media Gallery | Skywalk Holidays",
     description:
       "Explore photos of international destinations, happy Nepalese travelers, luxury hotels, and unforgettable tour moments with Skywalk Holidays.",
-    url: "https://skywalkholidays.com/gallery",
+    url: "https://skywalkholiday.com/gallery",
     siteName: "Skywalk Holidays",
     images: [
       {

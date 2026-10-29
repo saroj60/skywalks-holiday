@@ -9,7 +9,7 @@ import SkyBackground from "@/components/common/SkyBackground";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://skywalkholidays.com"),
+  metadataBase: new URL("https://skywalkholiday.com"),
   title: {
     default: "Skywalk Holidays | #1 Tour and Travel Company in Nepal",
     template: "%s | Skywalk Holidays Nepal",
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     "skywalk holidays",
     "skywalk tours and travels",
   ],
-  authors: [{ name: "Skywalks Holidays", url: "https://skywalkholidays.com" }],
+  authors: [{ name: "Skywalks Holidays", url: "https://skywalkholiday.com" }],
   creator: "Skywalks Holidays",
   publisher: "Skywalks Holidays",
   alternates: {
-    canonical: "https://skywalkholidays.com",
+    canonical: "https://skywalkholiday.com",
     languages: {
-      "en-NP": "https://skywalkholidays.com",
-      "ne-NP": "https://skywalkholidays.com",
+      "en-NP": "https://skywalkholiday.com",
+      "ne-NP": "https://skywalkholiday.com",
     },
   },
   formatDetection: {
@@ -59,11 +59,11 @@ export const metadata: Metadata = {
     title: "Skywalk Holidays | #1 Tour and Travel Company in Nepal",
     description:
       "Nepal's premier tour and travel agency in Kathmandu. Best rates for Thailand, Bali Indonesia, China, Vietnam holiday packages, cheap flight tickets & visa assistance.",
-    url: "https://skywalkholidays.com",
+    url: "https://skywalkholiday.com",
     siteName: "Skywalk Holidays Nepal",
     images: [
       {
-        url: "https://skywalkholidays.com/uploads/Explore%20Holiday%20Packages.png",
+        url: "https://skywalkholiday.com/uploads/Explore%20Holiday%20Packages.png",
         width: 1200,
         height: 630,
         alt: "Skywalk Holidays — Best Tour and Travel Company in Nepal",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title: "Skywalk Holidays | #1 Tour and Travel Company in Nepal",
     description:
       "Book Thailand, Bali Indonesia, China & Vietnam holiday packages, cheap flight tickets, and visa assistance with Skywalk Holidays Kathmandu.",
-    images: ["https://skywalkholidays.com/uploads/Explore%20Holiday%20Packages.png"],
+    images: ["https://skywalkholiday.com/uploads/Explore%20Holiday%20Packages.png"],
   },
   icons: {
     icon: [
@@ -114,7 +114,7 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "TravelAgency",
-        "@id": "https://skywalkholidays.com/#travelagency",
+        "@id": "https://skywalkholiday.com/#travelagency",
         "name": "Skywalks Holidays",
         "alternateName": [
           "Skywalk Holidays",
@@ -123,9 +123,9 @@ export default function RootLayout({
           "Skywalk Tours and Travels Kathmandu"
         ],
         "legalName": "Skywalk Tours and Travels Pvt. Ltd.",
-        "url": "https://skywalkholidays.com",
-        "logo": "https://skywalkholidays.com/images/logo.png",
-        "image": "https://skywalkholidays.com/uploads/Explore%20Holiday%20Packages.png",
+        "url": "https://skywalkholiday.com",
+        "logo": "https://skywalkholiday.com/images/logo.png",
+        "image": "https://skywalkholiday.com/uploads/Explore%20Holiday%20Packages.png",
         "description":
           "Skywalk Holidays is Nepal's premier tour and travel company based in Kathmandu. We specialize in international holiday tour packages (Bangkok Thailand, Bali Indonesia, China, Vietnam, Europe), domestic tours, flight ticket booking, hotel reservations, and visa processing services.",
         "telephone": "+977 971-4491103",
@@ -206,16 +206,16 @@ export default function RootLayout({
       },
       {
         "@type": "WebSite",
-        "@id": "https://skywalkholidays.com/#website",
-        "url": "https://skywalkholidays.com",
+        "@id": "https://skywalkholiday.com/#website",
+        "url": "https://skywalkholiday.com",
         "name": "Skywalk Holidays",
         "alternateName": "Skywalk Tours & Travels",
         "publisher": {
-          "@id": "https://skywalkholidays.com/#travelagency"
+          "@id": "https://skywalkholiday.com/#travelagency"
         },
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://skywalkholidays.com/services/packages/international?country={search_term_string}",
+          "target": "https://skywalkholiday.com/services/packages/international?country={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }

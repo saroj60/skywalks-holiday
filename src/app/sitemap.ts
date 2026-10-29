@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { PACKAGES_DICTIONARY } from "@/lib/packagesData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://skywalkholidays.com";
+  const baseUrl = "https://skywalkholiday.com";
   const now = new Date();
 
   // Core static landing pages

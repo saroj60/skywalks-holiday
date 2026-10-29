@@ -19,16 +19,16 @@ export const metadata: Metadata = {
     "skywalk tours and travels contact",
   ],
   alternates: {
-    canonical: "https://skywalkholidays.com/contact",
+    canonical: "https://skywalkholiday.com/contact",
   },
   openGraph: {
     title: "Contact Skywalk Holidays | Premier Tour & Travel Company in Nepal",
     description: "Visit our office in Pepsicola, Kathmandu or call +977 971-4491103 for instant tour, flight & visa consultations.",
-    url: "https://skywalkholidays.com/contact",
+    url: "https://skywalkholiday.com/contact",
     siteName: "Skywalk Holidays Nepal",
     images: [
       {
-        url: "https://skywalkholidays.com/images/contact-hero-banner.png",
+        url: "https://skywalkholiday.com/images/contact-hero-banner.png",
         width: 1280,
         height: 600,
         alt: "Contact Skywalk Holidays Kathmandu",

@@ -49,7 +49,7 @@ const INITIAL_STAFF_ACCOUNTS: StaffAccount[] = [
   {
     id: "usr-tours",
     name: "Saroj & Tours Desk",
-    email: "tours@skywalkholidays.com",
+    email: "tours@skywalkholiday.com",
     role: "TOURS_ADMIN",
     department: "Holiday Packages & Outbound Tours",
     lastLogin: "Today, 11:30 AM",
@@ -58,7 +58,7 @@ const INITIAL_STAFF_ACCOUNTS: StaffAccount[] = [
   {
     id: "usr-flights",
     name: "Aayush & Ticketing Desk",
-    email: "flights@skywalkholidays.com",
+    email: "flights@skywalkholiday.com",
     role: "FLIGHTS_ADMIN",
     department: "Flight Deals & IATA Ticketing",
     lastLogin: "Yesterday",
@@ -67,7 +67,7 @@ const INITIAL_STAFF_ACCOUNTS: StaffAccount[] = [
   {
     id: "usr-hotels",
     name: "Hotels Operations Desk",
-    email: "hotels@skywalkholidays.com",
+    email: "hotels@skywalkholiday.com",
     role: "HOTELS_ADMIN",
     department: "Partner Hotels & Resorts",
     lastLogin: "2 days ago",
@@ -76,7 +76,7 @@ const INITIAL_STAFF_ACCOUNTS: StaffAccount[] = [
   {
     id: "usr-visa",
     name: "Visa Documentation Specialist",
-    email: "visa@skywalkholidays.com",
+    email: "visa@skywalkholiday.com",
     role: "VISA_ADMIN",
     department: "Visa Documentation & VFS Filing",
     lastLogin: "Today, 09:15 AM",
@@ -85,7 +85,7 @@ const INITIAL_STAFF_ACCOUNTS: StaffAccount[] = [
   {
     id: "usr-media",
     name: "Marketing & Gallery Desk",
-    email: "media@skywalkholidays.com",
+    email: "media@skywalkholiday.com",
     role: "MEDIA_ADMIN",
     department: "Photo Gallery & Social Media",
     lastLogin: "3 days ago",
@@ -473,7 +473,7 @@ export default function StaffManager() {
                   type="email"
                   value={formEmail}
                   onChange={(e) => setFormEmail(e.target.value)}
-                  placeholder="name@skywalkholidays.com"
+                  placeholder="name@skywalkholiday.com"
                   className="h-9 text-xs font-mono rounded-lg"
                 />
               </div>

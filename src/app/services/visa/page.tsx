@@ -24,17 +24,17 @@ export const metadata: Metadata = {
     "best travel agency for visa in nepal",
   ],
   alternates: {
-    canonical: "https://skywalkholidays.com/services/visa",
+    canonical: "https://skywalkholiday.com/services/visa",
   },
   openGraph: {
     title: "Visa Assistance in Nepal | Certified Travel Agency — Skywalk Holidays",
     description:
       "Expert visa assistance for Nepali passport holders: Australia, Japan, China, Schengen, UK, USA, Thailand & Malaysia. High approval guidance in Kathmandu.",
-    url: "https://skywalkholidays.com/services/visa",
+    url: "https://skywalkholiday.com/services/visa",
     siteName: "Skywalk Holidays Nepal",
     images: [
       {
-        url: "https://skywalkholidays.com/images/visa-hero-banner.png",
+        url: "https://skywalkholiday.com/images/visa-hero-banner.png",
         width: 1280,
         height: 600,
         alt: "Visa Assistance Services — Skywalk Holidays Nepal",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Visa Assistance in Nepal — Skywalk Holidays",
     description: "Expert visa processing & documentation assistance in Kathmandu for Australia, Japan, China, Schengen & more.",
-    images: ["https://skywalkholidays.com/images/visa-hero-banner.png"],
+    images: ["https://skywalkholiday.com/images/visa-hero-banner.png"],
   },
 };
 

@@ -581,10 +581,10 @@ export async function generateMetadata({
 
   const title = `${destination.name} Tour Packages from Nepal | Skywalk Holidays`;
   const description = `Book handpicked ${destination.name} holiday tour packages from Kathmandu with Skywalk Holidays. ${destination.subtitle}. Flight bookings, hotels, visa assistance & guided excursions. Starting from NPR ${destination.startingPrice.toLocaleString("en-US")}.`;
-  const canonicalUrl = `https://skywalkholidays.com/destinations/${destination.id}`;
+  const canonicalUrl = `https://skywalkholiday.com/destinations/${destination.id}`;
   const imageUrl = destination.image.startsWith("http")
     ? destination.image
-    : `https://skywalkholidays.com${destination.image}`;
+    : `https://skywalkholiday.com${destination.image}`;
 
   return {
     title,
@@ -650,10 +650,10 @@ export default async function DestinationPage({
   const whatsappMessage = `Hello Skywalk Holidays! I am interested in booking a holiday package for ${destination.name}. Please share available departure dates and pricing.`;
   const whatsappUrl = buildCustomWhatsAppLink(whatsappMessage);
 
-  const canonicalUrl = `https://skywalkholidays.com/destinations/${destination.id}`;
+  const canonicalUrl = `https://skywalkholiday.com/destinations/${destination.id}`;
   const imageUrl = destination.image.startsWith("http")
     ? destination.image
-    : `https://skywalkholidays.com${destination.image}`;
+    : `https://skywalkholiday.com${destination.image}`;
 
   const destinationSchema = {
     "@context": "https://schema.org",
@@ -683,13 +683,13 @@ export default async function DestinationPage({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://skywalkholidays.com",
+        item: "https://skywalkholiday.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "International Packages",
-        item: "https://skywalkholidays.com/services/packages/international",
+        item: "https://skywalkholiday.com/services/packages/international",
       },
       {
         "@type": "ListItem",
@@ -711,7 +711,7 @@ export default async function DestinationPage({
         "@type": "TouristTrip",
         name: pkg.title,
         description: `${pkg.duration} holiday in ${pkg.destination} offered by Skywalk Holidays Nepal.`,
-        url: `https://skywalkholidays.com/packages/${pkg.id}`,
+        url: `https://skywalkholiday.com/packages/${pkg.id}`,
         offers: {
           "@type": "Offer",
           price: pkg.price,

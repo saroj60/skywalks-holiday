@@ -880,7 +880,7 @@ export default function IatsVisaGuideBook() {
   const handleShare = (country: IatsVisaCountry) => {
     const text = `Check out the complete 2026 Tourist Visa Guide for ${country.name} (${country.visaType}) on Skywalk Holidays!`;
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(`${text}\nhttps://skywalkholidays.com/services/visa#iats-guide-${country.id}`);
+      navigator.clipboard.writeText(`${text}\nhttps://skywalkholiday.com/services/visa#iats-guide-${country.id}`);
       setCopiedId(country.id);
       setTimeout(() => setCopiedId(null), 2000);
     }

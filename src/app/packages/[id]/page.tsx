@@ -136,9 +136,9 @@ export async function generateMetadata({
   const destination = pkg.destination || "International";
   const title = `${pkg.title} | ${destination} Tour from Nepal — Skywalk Holidays`;
   const description = `${pkg.duration} holiday tour package to ${destination}. Starting from NPR ${pkg.price ? pkg.price.toLocaleString() : "48,000"}. Includes round-trip international flights from Kathmandu, deluxe hotel stays, guided sightseeing, and visa assistance.`;
-  const canonicalUrl = `https://skywalkholidays.com/packages/${id}`;
+  const canonicalUrl = `https://skywalkholiday.com/packages/${id}`;
   const rawImage = pkg.image || (pkg.gallery && pkg.gallery[0]?.url) || "/images/explore-holiday-packages.png";
-  const ogImageUrl = rawImage.startsWith("http") ? rawImage : `https://skywalkholidays.com${rawImage}`;
+  const ogImageUrl = rawImage.startsWith("http") ? rawImage : `https://skywalkholiday.com${rawImage}`;
 
   return {
     title,
@@ -213,14 +213,14 @@ export default async function PackageDetailPage({
   }
 
   const rawImg = pkg.image || (pkg.gallery && pkg.gallery[0]?.url) || "/images/explore-holiday-packages.png";
-  const tripImageUrl = rawImg.startsWith("http") ? rawImg : `https://skywalkholidays.com${rawImg}`;
+  const tripImageUrl = rawImg.startsWith("http") ? rawImg : `https://skywalkholiday.com${rawImg}`;
 
   const packageJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": ["TouristTrip", "Product"],
-        "@id": `https://skywalkholidays.com/packages/${id}#trip`,
+        "@id": `https://skywalkholiday.com/packages/${id}#trip`,
         "name": pkg.title,
         "description": pkg.overview,
         "touristType": ["Holiday Travelers", "Couples", "Families", "Tourists from Nepal"],
@@ -230,7 +230,7 @@ export default async function PackageDetailPage({
           "price": pkg.price,
           "priceCurrency": "NPR",
           "availability": "https://schema.org/InStock",
-          "url": `https://skywalkholidays.com/packages/${id}`,
+          "url": `https://skywalkholiday.com/packages/${id}`,
           "priceValidUntil": "2027-12-31",
           "seller": {
             "@type": "TravelAgency",
@@ -241,7 +241,7 @@ export default async function PackageDetailPage({
         "provider": {
           "@type": "TravelAgency",
           "name": "Skywalks Holidays",
-          "url": "https://skywalkholidays.com"
+          "url": "https://skywalkholiday.com"
         },
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -258,19 +258,19 @@ export default async function PackageDetailPage({
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://skywalkholidays.com"
+            "item": "https://skywalkholiday.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Holiday Packages",
-            "item": "https://skywalkholidays.com/services/packages/international"
+            "item": "https://skywalkholiday.com/services/packages/international"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": pkg.title,
-            "item": `https://skywalkholidays.com/packages/${id}`
+            "item": `https://skywalkholiday.com/packages/${id}`
           }
         ]
       }

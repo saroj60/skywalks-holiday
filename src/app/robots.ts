@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin/", "/api/"],
     },
-    sitemap: "https://skywalkholidays.com/sitemap.xml",
+    sitemap: "https://skywalkholiday.com/sitemap.xml",
   };
 }

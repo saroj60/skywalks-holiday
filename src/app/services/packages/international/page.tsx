@@ -24,17 +24,17 @@ export const metadata: Metadata = {
     "cheap international tour packages nepal",
   ],
   alternates: {
-    canonical: "https://skywalkholidays.com/services/packages/international",
+    canonical: "https://skywalkholiday.com/services/packages/international",
   },
   openGraph: {
     title: "International Holiday Packages from Nepal — Skywalk Holidays",
     description:
       "All-inclusive holiday tour packages from Kathmandu to Thailand, Bali Indonesia, China, Vietnam & Europe. Flights, deluxe stays & visa included.",
-    url: "https://skywalkholidays.com/services/packages/international",
+    url: "https://skywalkholiday.com/services/packages/international",
     siteName: "Skywalk Holidays Nepal",
     images: [
       {
-        url: "https://skywalkholidays.com/uploads/Explore%20Holiday%20Packages.png",
+        url: "https://skywalkholiday.com/uploads/Explore%20Holiday%20Packages.png",
         width: 1200,
         height: 630,
         alt: "International Holiday Packages — Skywalk Holidays Nepal",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "International Holiday Packages from Nepal — Skywalk Holidays",
     description: "All-inclusive tour packages to Thailand, Bali Indonesia, China & Vietnam from Kathmandu.",
-    images: ["https://skywalkholidays.com/uploads/Explore%20Holiday%20Packages.png"],
+    images: ["https://skywalkholiday.com/uploads/Explore%20Holiday%20Packages.png"],
   },
 };
 
