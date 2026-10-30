@@ -27,51 +27,6 @@ interface TwoFactorPendingState {
   hintCode?: string;
 }
 
-const DEPARTMENT_PRESETS = [
-  {
-    role: "MASTER_ADMIN" as UserRole,
-    name: "Master Administrator",
-    badge: "Master Admin",
-    desc: "Full management & control",
-    email: "skywalktoursandtravels32@gmail.com",
-  },
-  {
-    role: "TOURS_ADMIN" as UserRole,
-    name: "Tours Desk Officer",
-    badge: "Tours Desk",
-    desc: "Packages, destinations & departures",
-    email: "tours@skywalkholiday.com",
-  },
-  {
-    role: "FLIGHTS_ADMIN" as UserRole,
-    name: "Ticketing Desk Officer",
-    badge: "Ticketing Desk",
-    desc: "Flight deals & ticketing leads",
-    email: "flights@skywalkholiday.com",
-  },
-  {
-    role: "HOTELS_ADMIN" as UserRole,
-    name: "Hotels Operations Desk",
-    badge: "Hotels Desk",
-    desc: "Hotel listings & reservation leads",
-    email: "hotels@skywalkholiday.com",
-  },
-  {
-    role: "VISA_ADMIN" as UserRole,
-    name: "Visa Specialist",
-    badge: "Visa Desk",
-    desc: "Visa applications & filing reviews",
-    email: "visa@skywalkholiday.com",
-  },
-  {
-    role: "MEDIA_ADMIN" as UserRole,
-    name: "Media & Content Officer",
-    badge: "Media Desk",
-    desc: "Photo assets & marketing gallery",
-    email: "media@skywalkholiday.com",
-  },
-];
-
 export default function AdminLoginForm() {
   const router = useRouter();
   const [loginEmail, setLoginEmail] = useState("");
@@ -432,10 +387,13 @@ export default function AdminLoginForm() {
               <Input
                 type="email"
                 required
+                name="admin_work_email"
                 autoComplete="off"
+                spellCheck={false}
+                autoCapitalize="none"
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
-                placeholder="name@skywalkholiday.com"
+                placeholder="Enter work email manually"
                 className="bg-white border-slate-300 text-sm h-11 focus:ring-2 focus:ring-[#0ea5e9] focus:border-[#0ea5e9] rounded-xl"
               />
             </div>
@@ -449,6 +407,7 @@ export default function AdminLoginForm() {
               <Input
                 type="password"
                 required
+                name="admin_work_password"
                 autoComplete="new-password"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
@@ -471,42 +430,8 @@ export default function AdminLoginForm() {
             </Button>
           </form>
 
-          {/* Department Quick Switcher */}
-          <div className="mt-6 pt-5 border-t border-slate-100">
-            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5">
-              Quick Select Department Account
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {DEPARTMENT_PRESETS.map((p) => {
-                const isActive = loginEmail.toLowerCase() === p.email.toLowerCase();
-                return (
-                  <button
-                    key={p.role}
-                    type="button"
-                    onClick={() => {
-                      setLoginEmail(p.email);
-                      setLoginPassword("");
-                      setLoginError("");
-                      setIs2FAStep(false);
-                    }}
-                    className={`text-left p-2.5 rounded-xl border text-xs transition-all cursor-pointer ${
-                      isActive
-                        ? "bg-[#0a1628] text-white border-[#0a1628] shadow-xs"
-                        : "bg-slate-50/80 hover:bg-slate-100 text-slate-700 border-slate-200"
-                    }`}
-                  >
-                    <div className="font-bold truncate">{p.name}</div>
-                    <div className={`text-[10px] truncate ${isActive ? "text-sky-300" : "text-slate-500"}`}>
-                      {p.email}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
           {/* Return to website */}
-          <div className="mt-5 pt-4 border-t border-slate-100 text-center">
+          <div className="mt-6 pt-5 border-t border-slate-100 text-center">
             <Link
               href="/"
               className="text-xs text-slate-500 hover:text-[#0ea5e9] font-semibold inline-flex items-center gap-1.5 transition-colors"
