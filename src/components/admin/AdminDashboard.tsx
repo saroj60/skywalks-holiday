@@ -47,13 +47,6 @@ export interface CurrentAdminUser {
   crmServiceFilter?: string;
 }
 
-interface TwoFactorPendingState {
-  tempToken: string;
-  email: string;
-  name: string;
-  hintCode?: string;
-}
-
 const DEPARTMENT_PRESETS = [
   {
     role: "MASTER_ADMIN" as UserRole,
@@ -204,160 +197,6 @@ export default function AdminDashboard() {
     }
   }, [currentUser, activeTab]);
 
-  // Initial Email + Password Sign In Handler
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoginError("");
-    setLoginLoading(true);
-
-    try {
-      const res = await fetch("/api/sys-admin/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: loginEmail, password: loginPassword }),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        // Check if 2FA is required (Enforced for Master Admin)
-        if (data.requires2FA) {
-          setTwoFactorPending({
-            tempToken: data.tempToken,
-            email: data.email,
-            name: data.name,
-            hintCode: data.hintCode,
-          });
-          setTwoFactorCode(data.hintCode || "");
-          setIs2FAStep(true);
-          setLoginError("");
-          setUseBackupKey(false);
-          return;
-        }
-
-        // Direct login for other departments
-        if (data.success && data.user) {
-          const roleKey = (data.user.role || "TOURS_ADMIN") as UserRole;
-          const config = ROLE_CONFIGS[roleKey];
-          const userObj: CurrentAdminUser = {
-            id: data.user.id || `usr-${roleKey.toLowerCase()}`,
-            name: data.user.name || "Staff Member",
-            email: data.user.email,
-            role: roleKey,
-            badge: data.user.badge || config?.badge || "Staff Officer",
-            allowedTabs: data.user.allowedTabs || config?.allowedTabs || ["crm"],
-            crmServiceFilter: data.user.crmServiceFilter || config?.crmServiceFilter,
-          };
-
-          if (typeof window !== "undefined") {
-            localStorage.setItem("skywalk_admin_logged", "true");
-            localStorage.setItem("skywalk_admin_user", JSON.stringify(userObj));
-          }
-          setCurrentUser(userObj);
-          setActiveTab(userObj.allowedTabs[0] || "crm");
-          setIsAuthenticated(true);
-        } else {
-          setLoginError(data.error || "Invalid email or password. Please try again.");
-        }
-      } else {
-        setLoginError(data.error || "Invalid email or password. Please try again.");
-      }
-    } catch (error) {
-      setLoginError("Unable to reach the server. Please check your network connection.");
-    } finally {
-      setLoginLoading(false);
-    }
-  };
-
-  // 2FA Verification Handler for Master Admin
-  const handleVerify2FA = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!twoFactorCode.trim()) {
-      setLoginError("Please enter your 6-digit verification code or master backup key.");
-      return;
-    }
-    setLoginError("");
-    setLoginLoading(true);
-
-    try {
-      const res = await fetch("/api/sys-admin/auth/2fa-verify", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tempToken: twoFactorPending?.tempToken,
-          code: twoFactorCode.trim(),
-        }),
-      });
-
-      const data = await res.json();
-
-      if (res.ok && data.success && data.user) {
-        const roleKey = (data.user.role || "MASTER_ADMIN") as UserRole;
-        const config = ROLE_CONFIGS[roleKey];
-        const userObj: CurrentAdminUser = {
-          id: data.user.id || `usr-${roleKey.toLowerCase()}`,
-          name: data.user.name || "Administrator",
-          email: data.user.email,
-          role: roleKey,
-          badge: data.user.badge || config?.badge || "Master Admin",
-          allowedTabs: data.user.allowedTabs || config?.allowedTabs || ["crm"],
-          crmServiceFilter: data.user.crmServiceFilter || config?.crmServiceFilter,
-        };
-
-        if (typeof window !== "undefined") {
-          localStorage.setItem("skywalk_admin_logged", "true");
-          localStorage.setItem("skywalk_admin_user", JSON.stringify(userObj));
-        }
-        setCurrentUser(userObj);
-        setActiveTab(userObj.allowedTabs[0] || "crm");
-        setIsAuthenticated(true);
-        setIs2FAStep(false);
-        setTwoFactorPending(null);
-      } else {
-        setLoginError(data.error || "Invalid verification code. Please check and try again.");
-      }
-    } catch (error) {
-      setLoginError("Server communication error. Please check your connection.");
-    } finally {
-      setLoginLoading(false);
-    }
-  };
-
-  // Resend 2FA Code
-  const handleResend2FA = async () => {
-    if (!twoFactorPending?.tempToken) return;
-    setLoginLoading(true);
-    setLoginError("");
-    try {
-      const res = await fetch("/api/sys-admin/auth/2fa-resend", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tempToken: twoFactorPending.tempToken }),
-      });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setTwoFactorPending((prev) =>
-          prev
-            ? {
-                ...prev,
-                tempToken: data.tempToken,
-                hintCode: data.hintCode,
-              }
-            : null
-        );
-        setTwoFactorCode(data.hintCode || "");
-        setResendNotice("A fresh 6-digit code has been generated.");
-        setTimeout(() => setResendNotice(""), 4500);
-      } else {
-        setLoginError(data.error || "Unable to resend code. Please sign in again.");
-      }
-    } catch (e) {
-      setLoginError("Failed to resend code.");
-    } finally {
-      setLoginLoading(false);
-    }
-  };
-
   const handleLogout = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("skywalk_admin_logged");
@@ -366,8 +205,6 @@ export default function AdminDashboard() {
     document.cookie = "skywalk_admin_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     setIsAuthenticated(false);
     setCurrentUser(null);
-    setIs2FAStep(false);
-    setTwoFactorPending(null);
     window.location.href = "/login";
   };
 

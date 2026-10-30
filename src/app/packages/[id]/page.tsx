@@ -29,7 +29,7 @@ import PackageInquirySidebar from "@/components/packages/PackageInquirySidebar";
 import PackageGallerySection from "@/components/packages/PackageGallerySection";
 import PackageSubNav from "@/components/packages/PackageSubNav";
 import PackagePdfButton from "@/components/packages/PackagePdfButton";
-
+import { prisma } from "@/lib/prisma";
 import { PACKAGES_DICTIONARY } from "@/lib/packagesData";
 function resolvePackage(id: string) {
   let pkg = PACKAGES_DICTIONARY[id];
@@ -184,7 +184,38 @@ export default async function PackageDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const pkg = resolvePackage(id);
+  let pkg = resolvePackage(id);
+
+  // Merge live database updates if available
+  try {
+    const numId = Number(id);
+    const dbPkg = await prisma.holidayPackage.findFirst({
+      where: {
+        OR: [
+          ...(!isNaN(numId) ? [{ id: numId }] : []),
+          ...(pkg?.title ? [{ title: pkg.title }] : []),
+        ],
+      },
+    });
+
+    if (dbPkg) {
+      pkg = {
+        ...(pkg || {}),
+        title: dbPkg.title || pkg?.title,
+        price: dbPkg.price,
+        originalPrice: dbPkg.originalPrice,
+        destination: dbPkg.destination || pkg?.destination,
+        duration: dbPkg.duration || pkg?.duration,
+        overview: dbPkg.overview || pkg?.overview,
+        inclusions: dbPkg.inclusions ? (typeof dbPkg.inclusions === "string" ? JSON.parse(dbPkg.inclusions) : dbPkg.inclusions) : pkg?.inclusions,
+        exclusions: dbPkg.exclusions ? (typeof dbPkg.exclusions === "string" ? JSON.parse(dbPkg.exclusions) : dbPkg.exclusions) : pkg?.exclusions,
+        itinerary: dbPkg.itinerary ? (typeof dbPkg.itinerary === "string" ? JSON.parse(dbPkg.itinerary) : dbPkg.itinerary) : pkg?.itinerary,
+        gallery: dbPkg.gallery ? (typeof dbPkg.gallery === "string" ? JSON.parse(dbPkg.gallery) : dbPkg.gallery) : pkg?.gallery,
+      } as any;
+    }
+  } catch (e) {
+    console.error("Error reading live package from DB:", e);
+  }
 
   if (!pkg) {
     return (

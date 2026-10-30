@@ -622,23 +622,29 @@ export default function HolidayPackagesListing() {
         if (res.ok) {
           const data = await res.json();
           if (data.packages && data.packages.length > 0) {
-            const mapped: PackageItem[] = data.packages.map((pkg: any) => ({
-              id: String(pkg.id),
-              title: pkg.title,
-              destination: pkg.destination,
-              country: pkg.country || pkg.destination,
-              duration: pkg.duration,
-              daysCount: Number(pkg.duration?.match(/\d+/g)?.[1] || pkg.duration?.match(/\d+/g)?.[0] || 6),
-              price: pkg.price,
-              originalPrice: pkg.originalPrice || pkg.price * 1.2,
-              category: pkg.category === "Honeymoon" ? "Honeymoon Packages" : "International Holidays",
-              badge: pkg.badge || "Popular",
-              rating: pkg.rating || 4.9,
-              reviewsCount: pkg.reviews || 120,
-              image: pkg.coverImage || "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
-              shortDescription: pkg.overview || "Experience luxury travel and guided sightseeing.",
-              inclusions: Array.isArray(pkg.inclusions) ? pkg.inclusions : [],
-            }));
+            const mapped: PackageItem[] = data.packages.map((pkg: any) => {
+              const match = PACKAGES_DATA.find(
+                (p) => p.title.toLowerCase().trim() === (pkg.title || "").toLowerCase().trim()
+              );
+              return {
+                id: match ? match.id : (pkg.slug || String(pkg.id)),
+                title: pkg.title,
+                destination: pkg.destination,
+                country: pkg.country || pkg.destination,
+                duration: pkg.duration,
+                daysCount: Number(pkg.duration?.match(/\d+/g)?.[1] || pkg.duration?.match(/\d+/g)?.[0] || 6),
+                price: Number(pkg.price),
+                originalPrice: Number(pkg.originalPrice) || Number(pkg.price) * 1.2,
+                category: pkg.category === "Honeymoon" ? "Honeymoon Packages" : "International Holidays",
+                badge: pkg.badge || (match ? match.badge : "Popular"),
+                rating: pkg.rating || 4.9,
+                reviewsCount: pkg.reviews || 120,
+                image: pkg.coverImage || (match ? match.image : "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80"),
+                shortDescription: pkg.overview || (match ? match.shortDescription : "Experience luxury travel and guided sightseeing."),
+                highlights: Array.isArray(pkg.highlights) ? pkg.highlights : (match ? match.highlights : []),
+                inclusions: Array.isArray(pkg.inclusions) ? pkg.inclusions : (match ? match.inclusions : []),
+              };
+            });
             setPackagesList(mapped);
           }
         }
