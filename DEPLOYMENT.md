@@ -44,7 +44,7 @@ This document provides step-by-step instructions for deploying the **Skywalk Hol
    ```bash
    npx prisma db push
    ```
-4. Seed the initial admin account by running a POST request to `/api/admin/auth/login` with default credentials (`admin@skywalkholiday.com` / `admin123`) or customizing your admin seed.
+4. Seed the initial admin account by running a POST request to `/api/admin/auth/login` with your master admin credentials or customizing your admin seed.
 
 ---
 

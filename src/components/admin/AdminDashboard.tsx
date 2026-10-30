@@ -61,7 +61,6 @@ const DEPARTMENT_PRESETS = [
     badge: "Master Admin",
     desc: "Full management & control",
     email: "skywalktoursandtravels32@gmail.com",
-    pass: "skywalktoursandtravels@@2026",
   },
   {
     role: "TOURS_ADMIN" as UserRole,
@@ -69,7 +68,6 @@ const DEPARTMENT_PRESETS = [
     badge: "Tours Desk",
     desc: "Packages, destinations & tour leads",
     email: "tours@skywalkholiday.com",
-    pass: "tours123",
   },
   {
     role: "FLIGHTS_ADMIN" as UserRole,
@@ -77,7 +75,6 @@ const DEPARTMENT_PRESETS = [
     badge: "Ticketing Desk",
     desc: "Flight deals & ticketing inquiries",
     email: "flights@skywalkholiday.com",
-    pass: "flights123",
   },
   {
     role: "HOTELS_ADMIN" as UserRole,
@@ -85,7 +82,6 @@ const DEPARTMENT_PRESETS = [
     badge: "Hotels Desk",
     desc: "Hotel listings & reservation leads",
     email: "hotels@skywalkholiday.com",
-    pass: "hotels123",
   },
   {
     role: "VISA_ADMIN" as UserRole,
@@ -93,7 +89,6 @@ const DEPARTMENT_PRESETS = [
     badge: "Visa Desk",
     desc: "Visa applications & filing reviews",
     email: "visa@skywalkholiday.com",
-    pass: "visa123",
   },
   {
     role: "MEDIA_ADMIN" as UserRole,
@@ -101,7 +96,6 @@ const DEPARTMENT_PRESETS = [
     badge: "Media Desk",
     desc: "Photo assets & marketing gallery",
     email: "media@skywalkholiday.com",
-    pass: "media123",
   },
 ];
 
@@ -124,18 +118,6 @@ export default function AdminDashboard() {
     }
     return null;
   });
-
-  const [loginEmail, setLoginEmail] = useState("skywalktoursandtravels32@gmail.com");
-  const [loginPassword, setLoginPassword] = useState("skywalktoursandtravels@@2026");
-  const [loginError, setLoginError] = useState("");
-  const [loginLoading, setLoginLoading] = useState(false);
-
-  // 2FA Flow State
-  const [is2FAStep, setIs2FAStep] = useState(false);
-  const [twoFactorPending, setTwoFactorPending] = useState<TwoFactorPendingState | null>(null);
-  const [twoFactorCode, setTwoFactorCode] = useState("");
-  const [useBackupKey, setUseBackupKey] = useState(false);
-  const [resendNotice, setResendNotice] = useState("");
 
   const [activeTab, setActiveTab] = useState<AdminTab>(() => {
     if (typeof window !== "undefined") {
