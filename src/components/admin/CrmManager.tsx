@@ -67,7 +67,24 @@ export interface CrmLead {
   notes: string;
 }
 
-const CRM_STORAGE_KEY = "skywalk_admin_crm_leads_v2";
+const CRM_STORAGE_KEY = "skywalk_admin_crm_leads_v3";
+
+const TEST_LEAD_IDS = new Set([
+  "PKG-782101",
+  "FL-629140",
+  "PKG-904231",
+  "VISA-331892",
+  "HT-119844",
+  "PKG-455219",
+  "MSG-882012",
+  "lead-001",
+  "lead-002",
+  "lead-003",
+  "lead-004",
+  "lead-005",
+  "lead-006",
+  "lead-007",
+]);
 
 export const STAFF_MEMBERS = [
   "Unassigned",
@@ -203,21 +220,35 @@ export default function CrmManager({ crmServiceFilter, userRole }: CrmManagerPro
   // Load CRM leads from backend API or local storage
   const fetchLeads = async () => {
     setLoading(true);
+
+    // Clean legacy cached test data if present
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.removeItem("skywalk_admin_crm_leads");
+        localStorage.removeItem("skywalk_admin_crm_leads_v2");
+      } catch (e) {}
+    }
+
     try {
       const res = await fetch("/api/sys-admin/inquiries");
       if (res.ok) {
         const data = await res.json();
         if (data.leads && Array.isArray(data.leads)) {
+          const validApiLeads = data.leads.filter(
+            (l: CrmLead) => !TEST_LEAD_IDS.has(l.id) && !TEST_LEAD_IDS.has(l.rawId)
+          );
+
           // Check local storage for overrides/newly added local leads
           const savedLocal = localStorage.getItem(CRM_STORAGE_KEY);
           if (savedLocal) {
             try {
               const parsedLocal = JSON.parse(savedLocal);
               if (Array.isArray(parsedLocal) && parsedLocal.length > 0) {
-                // Merge by ID
                 const leadMap = new Map<string, CrmLead>();
-                data.leads.forEach((l: CrmLead) => leadMap.set(l.id, l));
-                parsedLocal.forEach((l: CrmLead) => leadMap.set(l.id, l));
+                validApiLeads.forEach((l: CrmLead) => leadMap.set(l.id, l));
+                parsedLocal
+                  .filter((l: CrmLead) => !TEST_LEAD_IDS.has(l.id) && !TEST_LEAD_IDS.has(l.rawId))
+                  .forEach((l: CrmLead) => leadMap.set(l.id, l));
                 const merged = Array.from(leadMap.values());
                 setLeads(merged);
                 localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(merged));
@@ -226,8 +257,8 @@ export default function CrmManager({ crmServiceFilter, userRole }: CrmManagerPro
               }
             } catch (e) {}
           }
-          setLeads(data.leads);
-          localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(data.leads));
+          setLeads(validApiLeads);
+          localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(validApiLeads));
           setLoading(false);
           return;
         }
@@ -238,8 +269,13 @@ export default function CrmManager({ crmServiceFilter, userRole }: CrmManagerPro
     const stored = localStorage.getItem(CRM_STORAGE_KEY);
     if (stored) {
       try {
-        setLeads(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) {
+          setLeads(parsed.filter((l: CrmLead) => !TEST_LEAD_IDS.has(l.id) && !TEST_LEAD_IDS.has(l.rawId)));
+        }
       } catch (e) {}
+    } else {
+      setLeads([]);
     }
     setLoading(false);
   };
