@@ -152,6 +152,18 @@ export default function AdminDashboard() {
     return "crm";
   });
 
+  const [targetEditPackageId, setTargetEditPackageId] = useState<string | number | null>(null);
+
+  const handleSwitchToPackages = (packageId?: string | number) => {
+    if (packageId) {
+      setTargetEditPackageId(packageId);
+    }
+    setActiveTab("packages");
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   // Verify auth session background verification
   useEffect(() => {
     const checkAuth = async () => {
@@ -650,8 +662,15 @@ export default function AdminDashboard() {
             userRole={currentUser?.role}
           />
         )}
-        {activeTab === "packages" && <PackageManager />}
-        {activeTab === "countries" && <CountryManager />}
+        {activeTab === "packages" && (
+          <PackageManager
+            initialEditPackageId={targetEditPackageId}
+            onClearTargetEdit={() => setTargetEditPackageId(null)}
+          />
+        )}
+        {activeTab === "countries" && (
+          <CountryManager onSwitchToPackages={handleSwitchToPackages} />
+        )}
         {activeTab === "departures" && <DepartureManager />}
         {activeTab === "flights" && <FlightManager />}
         {activeTab === "hotels" && <HotelManager />}

@@ -42,7 +42,15 @@ export const INITIAL_PACKAGES: PackageRecord[] = getPackagesAsAdminRecords();
 
 const LOCAL_STORAGE_KEY = "skywalk_admin_packages_v1";
 
-export default function PackageManager() {
+export interface PackageManagerProps {
+  initialEditPackageId?: string | number | null;
+  onClearTargetEdit?: () => void;
+}
+
+export default function PackageManager({
+  initialEditPackageId,
+  onClearTargetEdit,
+}: PackageManagerProps = {}) {
   const [packages, setPackages] = useState<PackageRecord[]>(() => {
     if (typeof window !== "undefined") {
       try {
@@ -87,6 +95,19 @@ export default function PackageManager() {
   const [newDayDesc, setNewDayDesc] = useState("");
   const [newDayMeals, setNewDayMeals] = useState("");
   const [newDayStay, setNewDayStay] = useState("");
+
+  // Handle incoming request to edit specific package from Destinations or other tabs
+  useEffect(() => {
+    if (initialEditPackageId && packages.length > 0) {
+      const target = packages.find(
+        (p) => String(p.id) === String(initialEditPackageId) || p.slug === String(initialEditPackageId)
+      );
+      if (target) {
+        handleOpenEdit(target);
+        if (onClearTargetEdit) onClearTargetEdit();
+      }
+    }
+  }, [initialEditPackageId, packages]);
 
   const showNotification = (msg: string) => {
     setStatusNotification(msg);
@@ -201,6 +222,9 @@ export default function PackageManager() {
     });
     setActiveTab("general");
     setIsEditing(true);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const handleSavePackage = async () => {
@@ -259,9 +283,14 @@ export default function PackageManager() {
     try {
       const endpoint = editingPackage.id ? `/api/packages/${editingPackage.id}` : "/api/packages";
       const method = editingPackage.id ? "PATCH" : "POST";
+      const token = typeof window !== "undefined" ? localStorage.getItem("skywalk_admin_token") : null;
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
       await fetch(endpoint, {
         method,
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify(editingPackage),
       });
     } catch (e) {
@@ -278,7 +307,12 @@ export default function PackageManager() {
     const updated = packages.filter((p) => p.id !== id);
     persistPackages(updated);
     showNotification("Package deleted.");
-    await fetch(`/api/packages/${id}`, { method: "DELETE" }).catch(() => null);
+    const token = typeof window !== "undefined" ? localStorage.getItem("skywalk_admin_token") : null;
+    const headers: Record<string, string> = {};
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+    await fetch(`/api/packages/${id}`, { method: "DELETE", headers }).catch(() => null);
   };
 
   // Itinerary Handlers

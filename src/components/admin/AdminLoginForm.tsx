@@ -141,6 +141,9 @@ export default function AdminLoginForm() {
           if (typeof window !== "undefined") {
             localStorage.setItem("skywalk_admin_logged", "true");
             localStorage.setItem("skywalk_admin_user", JSON.stringify(userObj));
+            if (data.token) {
+              localStorage.setItem("skywalk_admin_token", data.token);
+            }
           }
 
           window.location.href = "/admin";

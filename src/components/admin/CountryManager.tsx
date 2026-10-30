@@ -36,7 +36,11 @@ export interface CountryRecord {
   featured?: boolean;
 }
 
-export default function CountryManager() {
+export interface CountryManagerProps {
+  onSwitchToPackages?: (packageId?: string | number) => void;
+}
+
+export default function CountryManager({ onSwitchToPackages }: CountryManagerProps = {}) {
   const [countries, setCountries] = useState<CountryRecord[]>([]);
   const [packages, setPackages] = useState<PackageRecord[]>([]);
   const [isEditingCountry, setIsEditingCountry] = useState(false);
@@ -230,6 +234,25 @@ export default function CountryManager() {
             <Plus size={16} /> Add New Country
           </Button>
         </div>
+      </div>
+
+      {/* Guide Banner for User */}
+      <div className="bg-sky-50 border border-sky-200 text-sky-950 px-5 py-3.5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-xs">
+        <div className="flex items-center gap-2.5">
+          <span className="text-lg">💡</span>
+          <div>
+            <span className="font-extrabold text-sky-900">Notice:</span> You are currently viewing <strong>Destination Country Cards</strong> (Thailand, Bali, etc.). To edit individual tour package itineraries, prices, and days, go to the <strong className="text-[#0ea5e9]">Holiday Packages</strong> tab or click any package below.
+          </div>
+        </div>
+        {onSwitchToPackages && (
+          <Button
+            size="sm"
+            onClick={() => onSwitchToPackages()}
+            className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold text-xs shrink-0 rounded-xl shadow-xs"
+          >
+            Go to Holiday Packages
+          </Button>
+        )}
       </div>
 
       {savedSuccess && (
@@ -434,14 +457,24 @@ export default function CountryManager() {
                         countryPackages.map((pkg) => (
                           <div
                             key={pkg.id}
-                            className="bg-white p-2.5 rounded-xl border border-[#e2e8f0] flex items-center justify-between gap-2"
+                            className="bg-white p-2.5 rounded-xl border border-[#e2e8f0] flex items-center justify-between gap-2 shadow-xs hover:border-[#0ea5e9]/50 transition-colors"
                           >
-                            <div className="min-w-0">
+                            <div className="min-w-0 pr-2">
                               <span className="font-bold text-[#0a1628] text-xs block truncate">{pkg.title}</span>
                               <span className="text-[10px] text-[#64748b]">
                                 {pkg.duration} • NPR {pkg.price?.toLocaleString("en-US")}
                               </span>
                             </div>
+                            {onSwitchToPackages && (
+                              <Button
+                                size="sm"
+                                onClick={() => onSwitchToPackages(pkg.id)}
+                                className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white text-[11px] font-bold h-7 px-2.5 rounded-lg flex items-center gap-1 shrink-0"
+                              >
+                                <Edit size={12} />
+                                <span>Edit Package</span>
+                              </Button>
+                            )}
                           </div>
                         ))
                       )}
